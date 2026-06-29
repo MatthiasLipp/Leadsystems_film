@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Leadsystems — Designsystem "Signal über Lärm"
+   Palette: Petrol-Ink-Bühne · Porzellan-Hell · luminöser Live-Puls
+   Type: Fraunces (Display-Serife, opsz) · Switzer (Body) · JetBrains Mono (Daten)
+   ───────────────────────────────────────────────────────────────────────── */
+
+@theme inline {
+  /* Schrift-Rollen */
+  --font-display: "Fraunces", "Switzer", ui-serif, Georgia, serif;
+  --font-sans: "Switzer", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Marken-Farbtoken */
+  --color-ink: #06201e;
+  --color-ink-800: #0a2a27;
+  --color-ink-700: #0e332f;
+  --color-ink-600: #14413c;
+  --color-ink-500: #1d534c;
+  --color-porcelain: #e9edeb;
+  --color-porcelain-200: #dde3e0;
+  --color-paper: #f6f8f7;
+  --color-pulse: #25e39b;
+  --color-pulse-strong: #1cce8a;
+  --color-pulse-deep: #0a6b4a;
+  --color-mist: #e6f0eb;
+  --color-sage: #8aa39b;
+  --color-slate: #51635e;
+
+  /* shadcn semantische Token → an Marke gekoppelt */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* Helle Welt (Porzellan) — Standardkontext für Inhaltssektionen */
+:root {
+  --radius: 0.5rem;
+  --background: #e9edeb;
+  --foreground: #06201e;
+  --card: #f6f8f7;
+  --card-foreground: #06201e;
+  --popover: #f6f8f7;
+  --popover-foreground: #06201e;
+  /* Primär-CTA = Marken-Puls, in JEDEM Kontext identisch */
+  --primary: #1cce8a;
+  --primary-foreground: #04130e;
+  --secondary: #dde3e0;
+  --secondary-foreground: #06201e;
+  --muted: #dfe5e2;
+  --muted-foreground: #51635e;
+  --accent: #d6ece2;
+  --accent-foreground: #06201e;
+  --destructive: #c0492f;
+  --border: #d0d8d4;
+  --input: #ccd5d0;
+  --ring: #1cce8a;
+  --sidebar: #f6f8f7;
+  --sidebar-foreground: #06201e;
+  --sidebar-primary: #1cce8a;
+  --sidebar-primary-foreground: #04130e;
+  --sidebar-accent: #d6ece2;
+  --sidebar-accent-foreground: #06201e;
+  --sidebar-border: #d0d8d4;
+  --sidebar-ring: #1cce8a;
+}
+
+/* Dunkle Welt (Petrol-Ink) — Hero, Scroll-Bühne, Footer */
+.dark {
+  --background: #06201e;
+  --foreground: #e6f0eb;
+  --card: #0e332f;
+  --card-foreground: #e6f0eb;
+  --popover: #0e332f;
+  --popover-foreground: #e6f0eb;
+  --primary: #1cce8a;
+  --primary-foreground: #04130e;
+  --secondary: #14413c;
+  --secondary-foreground: #e6f0eb;
+  --muted: #103a36;
+  --muted-foreground: #8aa39b;
+  --accent: #14413c;
+  --accent-foreground: #e6f0eb;
+  --destructive: #e0684a;
+  --border: color-mix(in oklab, #e6f0eb 12%, transparent);
+  --input: color-mix(in oklab, #e6f0eb 18%, transparent);
+  --ring: #25e39b;
+  --sidebar: #0a2a27;
+  --sidebar-foreground: #e6f0eb;
+  --sidebar-primary: #1cce8a;
+  --sidebar-primary-foreground: #04130e;
+  --sidebar-accent: #14413c;
+  --sidebar-accent-foreground: #e6f0eb;
+  --sidebar-border: color-mix(in oklab, #e6f0eb 12%, transparent);
+  --sidebar-ring: #25e39b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/60;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* Ink-Leinwand hinter allem: Hero (oben) & Footer (unten) sind dunkel,
+       Overscroll bleibt so im Markenton statt aufzublitzen. */
+    background-color: var(--color-ink);
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    background-color: var(--color-ink);
+    font-weight: 450;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "cv01";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2 {
+    @apply font-display;
+    font-weight: 580;
+    font-optical-sizing: auto;
+    letter-spacing: -0.018em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  h3, h4 {
+    @apply font-sans;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--color-pulse);
+    color: #04130e;
+  }
+
+  /* Sichtbarer Fokus-Ring überall */
+  :focus-visible {
+    outline: 2px solid var(--color-pulse);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Mono-Eyebrow / Daten-Label */
+  .label-mono {
+    @apply font-mono uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+  }
+
+  /* Haarlinie im Markenton */
+  .hairline {
+    border-color: color-mix(in oklab, currentColor 14%, transparent);
+  }
+
+  /* Statischer Marken-Punkt (ohne Glühen/Puls) */
+  .pulse-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-pulse);
+  }
+
+  /* Feines Display-Korn / Vignette über der Bühne */
+  .stage-vignette {
+    background:
+      radial-gradient(120% 80% at 50% 38%, transparent 38%, rgba(2, 14, 13, 0.55) 100%);
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
