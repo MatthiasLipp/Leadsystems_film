@@ -9,7 +9,7 @@
 
 import { FRAME_COUNT, FRAME_EXT, FRAME_PAD } from "./frames.generated";
 
-export const FRAME_PATH = "/sequence/frame_";
+export const FRAME_PATH = `${import.meta.env.BASE_URL}sequence/frame_`;
 export { FRAME_COUNT, FRAME_EXT, FRAME_PAD };
 
 /** Repräsentatives Standbild (1-basiert) für Mobile / prefers-reduced-motion. */
