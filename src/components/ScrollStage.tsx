@@ -70,6 +70,9 @@ export function ScrollStage() {
   const beatRefs = useRef<(HTMLDivElement | null)[]>([]);
   const cueRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLSpanElement>(null);
+  const leftScrimRef = useRef<HTMLDivElement>(null);
+  const leftBoostRef = useRef<HTMLDivElement>(null);
+  const bottomScrimRef = useRef<HTMLDivElement>(null);
 
   const [showLoader, setShowLoader] = useState(true);
 
@@ -132,6 +135,11 @@ export function ScrollStage() {
     };
 
     const updateBeats = (p: number) => {
+      const release = Math.pow(clamp(p, 0, 1), 0.72);
+      if (leftScrimRef.current) leftScrimRef.current.style.opacity = String(1 - release * 0.84);
+      if (leftBoostRef.current) leftBoostRef.current.style.opacity = String(1 - clamp(p / 0.72, 0, 1));
+      if (bottomScrimRef.current) bottomScrimRef.current.style.opacity = String(0.9 - release * 0.74);
+
       for (let i = 0; i < BEATS.length; i++) {
         const el = beatRefs.current[i];
         if (!el) continue;
@@ -234,10 +242,19 @@ export function ScrollStage() {
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full" aria-hidden="true" />
 
-        {/* Lesbarkeits-Scrim: links kräftig abgedunkelt, damit die Beats über den
-            hellen Bild-Frames klar lesbar bleiben */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(6,32,30,0.95)_0%,rgba(6,32,30,0.84)_34%,rgba(6,32,30,0.48)_58%,rgba(6,32,30,0)_82%)]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 to-transparent" />
+        {/* Scrollabhängige Lesbarkeits-Schatten: kräftig am Anfang, offen am Ende. */}
+        <div
+          ref={leftScrimRef}
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(2,14,13,0.98)_0%,rgba(6,32,30,0.94)_32%,rgba(6,32,30,0.56)_58%,rgba(6,32,30,0)_84%)]"
+        />
+        <div
+          ref={leftBoostRef}
+          className="pointer-events-none absolute inset-y-0 left-0 w-[76%] bg-[radial-gradient(80%_88%_at_0%_50%,rgba(0,0,0,0.74)_0%,rgba(2,14,13,0.54)_45%,rgba(2,14,13,0)_100%)]"
+        />
+        <div
+          ref={bottomScrimRef}
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 to-transparent"
+        />
 
         {/* Fortschritts-Schiene (Signature-HUD) */}
         <div className="pointer-events-none absolute right-6 top-1/2 hidden h-40 w-px -translate-y-1/2 bg-mist/15 md:block">
@@ -260,12 +277,12 @@ export function ScrollStage() {
                   style={{ opacity: 0 }}
                 >
                   <p className="label-mono text-pulse [text-shadow:0_1px_10px_rgba(2,14,13,0.7)]">{b.eyebrow}</p>
-                  <h2 className="mt-3 text-4xl leading-[1.05] text-mist md:text-5xl [text-shadow:0_2px_22px_rgba(2,14,13,0.6),0_1px_3px_rgba(2,14,13,0.5)]">{b.title}</h2>
-                  <p className="mt-5 text-lg leading-relaxed text-mist/90 text-pretty md:text-xl [text-shadow:0_1px_14px_rgba(2,14,13,0.65)]">{b.body}</p>
+                  <h2 className="mt-3 font-sans text-4xl font-semibold leading-[1.08] tracking-normal text-mist md:text-5xl [text-shadow:0_2px_22px_rgba(2,14,13,0.76),0_1px_3px_rgba(2,14,13,0.65)]">{b.title}</h2>
+                  <p className="mt-5 max-w-lg font-sans text-lg font-medium leading-relaxed text-mist/95 text-pretty md:text-xl [text-shadow:0_1px_14px_rgba(2,14,13,0.72)]">{b.body}</p>
                   {b.steps && (
                     <ol className="mt-7 space-y-3">
                       {b.steps.map((s, idx) => (
-                        <li key={s} className="flex items-baseline gap-4 [text-shadow:0_1px_12px_rgba(2,14,13,0.7)]">
+                        <li key={s} className="flex items-baseline gap-4 font-sans font-medium [text-shadow:0_1px_12px_rgba(2,14,13,0.74)]">
                           <span className="label-mono text-pulse">{String(idx + 1).padStart(2, "0")}</span>
                           <span className="text-mist">{s}</span>
                         </li>
