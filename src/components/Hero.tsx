@@ -127,7 +127,7 @@ export function Hero() {
             <div className="mt-5 rounded-xl bg-ink/70 p-4">
               <span className="label-mono text-sage">WhatsApp · automatisch</span>
               <div className="mt-3 flex justify-end">
-                <p className="max-w-[85%] rounded-2xl rounded-br-sm bg-pulse px-4 py-2.5 text-sm leading-snug text-[#04130e]">
+                <p className="max-w-[85%] rounded-2xl rounded-br-sm bg-pulse px-4 py-2.5 text-sm leading-snug text-white">
                   Hallo Herr Wegner, danke für Ihren Besuch an Stand B12! Passt Dienstag 11:00 Uhr
                   für ein kurzes Gespräch?
                 </p>

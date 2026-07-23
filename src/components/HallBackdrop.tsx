@@ -23,8 +23,8 @@ export function HallBackdrop({
     >
       <defs>
         <radialGradient id="hb-spot" cx="50%" cy="6%" r="62%">
-          <stop offset="0%" stopColor="#25e39b" stopOpacity="0.16" />
-          <stop offset="100%" stopColor="#25e39b" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2254ec" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#2254ec" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="hb-floor" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#0e332f" stopOpacity="0.4" />
@@ -67,7 +67,7 @@ export function HallBackdrop({
           <g key={i} opacity={b.o}>
             <rect x={x} y={y} width={w} height={h} rx={6} fill="#0e332f" stroke="#1d534c" />
             <rect x={x} y={y} width={w} height={38 * b.scale} rx={6} fill="#031412" />
-            <circle cx={x + 22 * b.scale} cy={y + 19 * b.scale} r={5 * b.scale} fill="#25e39b" />
+            <circle cx={x + 22 * b.scale} cy={y + 19 * b.scale} r={5 * b.scale} fill="#2254ec" />
             {b.focus ? (
               <>
                 <rect
@@ -78,7 +78,7 @@ export function HallBackdrop({
                   rx={8 * b.scale}
                   fill="#e6f0eb"
                 />
-                <circle cx={b.x} cy={y + 112 * b.scale} r={120 * b.scale} fill="none" stroke="#25e39b" strokeWidth="1.5" opacity="0.5" />
+                <circle cx={b.x} cy={y + 112 * b.scale} r={120 * b.scale} fill="none" stroke="#2254ec" strokeWidth="1.5" opacity="0.5" />
               </>
             ) : (
               <rect

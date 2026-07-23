@@ -5,7 +5,7 @@
 
 /* ─────────────────────────────────────────────────────────────────────────
    Leadsystems — Designsystem "Signal über Lärm"
-   Palette: Petrol-Ink-Bühne · Porzellan-Hell · luminöser Live-Puls
+   Palette: Petrol-Ink-Bühne · Porzellan-Hell · Logo-Blau als Live-Puls
    Type: Fraunces (Display-Serife, opsz) · Switzer (Body) · JetBrains Mono (Daten)
    ───────────────────────────────────────────────────────────────────────── */
 
@@ -24,9 +24,9 @@
   --color-porcelain: #e9edeb;
   --color-porcelain-200: #dde3e0;
   --color-paper: #f6f8f7;
-  --color-pulse: #25e39b;
-  --color-pulse-strong: #1cce8a;
-  --color-pulse-deep: #0a6b4a;
+  --color-pulse: #2254ec;
+  --color-pulse-strong: #1647d9;
+  --color-pulse-deep: #173aa8;
   --color-mist: #e6f0eb;
   --color-sage: #8aa39b;
   --color-slate: #51635e;
@@ -76,8 +76,8 @@
   --popover: #f6f8f7;
   --popover-foreground: #06201e;
   /* Primär-CTA = Marken-Puls, in JEDEM Kontext identisch */
-  --primary: #1cce8a;
-  --primary-foreground: #04130e;
+  --primary: #2254ec;
+  --primary-foreground: #f8fbff;
   --secondary: #dde3e0;
   --secondary-foreground: #06201e;
   --muted: #dfe5e2;
@@ -87,15 +87,15 @@
   --destructive: #c0492f;
   --border: #d0d8d4;
   --input: #ccd5d0;
-  --ring: #1cce8a;
+  --ring: #2254ec;
   --sidebar: #f6f8f7;
   --sidebar-foreground: #06201e;
-  --sidebar-primary: #1cce8a;
-  --sidebar-primary-foreground: #04130e;
+  --sidebar-primary: #2254ec;
+  --sidebar-primary-foreground: #f8fbff;
   --sidebar-accent: #d6ece2;
   --sidebar-accent-foreground: #06201e;
   --sidebar-border: #d0d8d4;
-  --sidebar-ring: #1cce8a;
+  --sidebar-ring: #2254ec;
 }
 
 /* Dunkle Welt (Petrol-Ink) — Hero, Scroll-Bühne, Footer */
@@ -106,8 +106,8 @@
   --card-foreground: #e6f0eb;
   --popover: #0e332f;
   --popover-foreground: #e6f0eb;
-  --primary: #1cce8a;
-  --primary-foreground: #04130e;
+  --primary: #2254ec;
+  --primary-foreground: #f8fbff;
   --secondary: #14413c;
   --secondary-foreground: #e6f0eb;
   --muted: #103a36;
@@ -117,15 +117,15 @@
   --destructive: #e0684a;
   --border: color-mix(in oklab, #e6f0eb 12%, transparent);
   --input: color-mix(in oklab, #e6f0eb 18%, transparent);
-  --ring: #25e39b;
+  --ring: #2254ec;
   --sidebar: #0a2a27;
   --sidebar-foreground: #e6f0eb;
-  --sidebar-primary: #1cce8a;
-  --sidebar-primary-foreground: #04130e;
+  --sidebar-primary: #2254ec;
+  --sidebar-primary-foreground: #f8fbff;
   --sidebar-accent: #14413c;
   --sidebar-accent-foreground: #e6f0eb;
   --sidebar-border: color-mix(in oklab, #e6f0eb 12%, transparent);
-  --sidebar-ring: #25e39b;
+  --sidebar-ring: #2254ec;
 }
 
 @layer base {
@@ -169,7 +169,7 @@
 
   ::selection {
     background: var(--color-pulse);
-    color: #04130e;
+    color: #f8fbff;
   }
 
   /* Sichtbarer Fokus-Ring überall */

@@ -14,7 +14,7 @@ const COLUMNS = [
   {
     title: "Unternehmen",
     links: [
-      { label: "Über uns", href: "#" },
+      { label: "Über uns", href: "#team" },
       { label: "Kontakt", href: "#erstgespraech" },
       { label: "Karriere", href: "#" },
     ],

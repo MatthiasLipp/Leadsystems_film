@@ -15,6 +15,7 @@ const LINKS = [
   { href: "#story", label: "So funktioniert's" },
   { href: "#funktionen", label: "Funktionen" },
   { href: "#referenzen", label: "Referenzen" },
+  { href: "#team", label: "Über uns" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -41,8 +42,8 @@ export function Nav() {
           <Logo />
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
-          <ul className="flex items-center gap-7">
+        <div className="hidden items-center gap-7 lg:flex">
+          <ul className="flex items-center gap-6">
             {LINKS.map((l) => (
               <li key={l.href}>
                 <a
@@ -60,7 +61,7 @@ export function Nav() {
         </div>
 
         {/* Mobile */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button

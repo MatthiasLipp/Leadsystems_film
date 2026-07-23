@@ -132,7 +132,7 @@ export function Features() {
                 </p>
                 {f.visual === "chat" && (
                   <div className="mt-5 flex justify-end">
-                    <p className="max-w-[90%] rounded-2xl rounded-br-sm bg-pulse px-3.5 py-2 text-sm leading-snug text-[#04130e]">
+                    <p className="max-w-[90%] rounded-2xl rounded-br-sm bg-pulse px-3.5 py-2 text-sm leading-snug text-white">
                       Danke für Ihren Besuch! Passt Dienstag 11:00 Uhr?
                     </p>
                   </div>
