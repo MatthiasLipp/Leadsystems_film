@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const STAGE_VH = 540;
 
-const INK = "#06201e";
+const INK = "#050812";
 
 type Beat = {
   id: string;
@@ -245,11 +245,11 @@ export function ScrollStage() {
         {/* Scrollabhängige Lesbarkeits-Schatten: kräftig am Anfang, offen am Ende. */}
         <div
           ref={leftScrimRef}
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(2,14,13,0.98)_0%,rgba(6,32,30,0.94)_32%,rgba(6,32,30,0.56)_58%,rgba(6,32,30,0)_84%)]"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(3,5,11,0.98)_0%,rgba(5,8,18,0.94)_32%,rgba(7,16,29,0.56)_58%,rgba(5,8,18,0)_84%)]"
         />
         <div
           ref={leftBoostRef}
-          className="pointer-events-none absolute inset-y-0 left-0 w-[76%] bg-[radial-gradient(80%_88%_at_0%_50%,rgba(0,0,0,0.74)_0%,rgba(2,14,13,0.54)_45%,rgba(2,14,13,0)_100%)]"
+          className="pointer-events-none absolute inset-y-0 left-0 w-[76%] bg-[radial-gradient(80%_88%_at_0%_50%,rgba(0,0,0,0.74)_0%,rgba(3,5,11,0.54)_45%,rgba(3,5,11,0)_100%)]"
         />
         <div
           ref={bottomScrimRef}
@@ -276,13 +276,13 @@ export function ScrollStage() {
                   className="absolute inset-x-0 top-0"
                   style={{ opacity: 0 }}
                 >
-                  <p className="label-mono text-pulse [text-shadow:0_1px_10px_rgba(2,14,13,0.7)]">{b.eyebrow}</p>
-                  <h2 className="mt-3 font-sans text-4xl font-semibold leading-[1.08] tracking-normal text-mist md:text-5xl [text-shadow:0_2px_22px_rgba(2,14,13,0.76),0_1px_3px_rgba(2,14,13,0.65)]">{b.title}</h2>
-                  <p className="mt-5 max-w-lg font-sans text-lg font-medium leading-relaxed text-mist/95 text-pretty md:text-xl [text-shadow:0_1px_14px_rgba(2,14,13,0.72)]">{b.body}</p>
+                  <p className="label-mono text-pulse [text-shadow:0_1px_10px_rgba(3,5,11,0.7)]">{b.eyebrow}</p>
+                  <h2 className="mt-3 font-sans text-4xl font-semibold leading-[1.08] tracking-normal text-mist md:text-5xl [text-shadow:0_2px_22px_rgba(3,5,11,0.76),0_1px_3px_rgba(3,5,11,0.65)]">{b.title}</h2>
+                  <p className="mt-5 max-w-lg font-sans text-lg font-medium leading-relaxed text-mist/95 text-pretty md:text-xl [text-shadow:0_1px_14px_rgba(3,5,11,0.72)]">{b.body}</p>
                   {b.steps && (
                     <ol className="mt-7 space-y-3">
                       {b.steps.map((s, idx) => (
-                        <li key={s} className="flex items-baseline gap-4 font-sans font-medium [text-shadow:0_1px_12px_rgba(2,14,13,0.74)]">
+                        <li key={s} className="flex items-baseline gap-4 font-sans font-medium [text-shadow:0_1px_12px_rgba(3,5,11,0.74)]">
                           <span className="label-mono text-pulse">{String(idx + 1).padStart(2, "0")}</span>
                           <span className="text-mist">{s}</span>
                         </li>

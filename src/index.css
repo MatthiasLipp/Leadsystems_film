@@ -5,7 +5,7 @@
 
 /* ─────────────────────────────────────────────────────────────────────────
    Leadsystems — Designsystem "Signal über Lärm"
-   Palette: Petrol-Ink-Bühne · Porzellan-Hell · Logo-Blau als Live-Puls
+   Palette: Blue-Black-Bühne · Porzellan-Hell · Logo-Blau als Live-Puls
    Type: Fraunces (Display-Serife, opsz) · Switzer (Body) · JetBrains Mono (Daten)
    ───────────────────────────────────────────────────────────────────────── */
 
@@ -16,20 +16,20 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
   /* Marken-Farbtoken */
-  --color-ink: #06201e;
-  --color-ink-800: #0a2a27;
-  --color-ink-700: #0e332f;
-  --color-ink-600: #14413c;
-  --color-ink-500: #1d534c;
-  --color-porcelain: #e9edeb;
-  --color-porcelain-200: #dde3e0;
-  --color-paper: #f6f8f7;
+  --color-ink: #050812;
+  --color-ink-800: #07101d;
+  --color-ink-700: #0b1628;
+  --color-ink-600: #10213a;
+  --color-ink-500: #1a3355;
+  --color-porcelain: #edf1f6;
+  --color-porcelain-200: #dde4ee;
+  --color-paper: #f8fafc;
   --color-pulse: #2254ec;
   --color-pulse-strong: #1647d9;
   --color-pulse-deep: #173aa8;
-  --color-mist: #e6f0eb;
-  --color-sage: #8aa39b;
-  --color-slate: #51635e;
+  --color-mist: #eef5ff;
+  --color-sage: #9cacbf;
+  --color-slate: #566477;
 
   /* shadcn semantische Token → an Marke gekoppelt */
   --color-sidebar-ring: var(--sidebar-ring);
@@ -69,62 +69,62 @@
 /* Helle Welt (Porzellan) — Standardkontext für Inhaltssektionen */
 :root {
   --radius: 0.5rem;
-  --background: #e9edeb;
-  --foreground: #06201e;
+  --background: #edf1f6;
+  --foreground: #050812;
   --card: #f6f8f7;
-  --card-foreground: #06201e;
+  --card-foreground: #050812;
   --popover: #f6f8f7;
-  --popover-foreground: #06201e;
+  --popover-foreground: #050812;
   /* Primär-CTA = Marken-Puls, in JEDEM Kontext identisch */
   --primary: #2254ec;
   --primary-foreground: #f8fbff;
-  --secondary: #dde3e0;
-  --secondary-foreground: #06201e;
-  --muted: #dfe5e2;
-  --muted-foreground: #51635e;
-  --accent: #d6ece2;
-  --accent-foreground: #06201e;
+  --secondary: #dde4ee;
+  --secondary-foreground: #050812;
+  --muted: #e1e6ed;
+  --muted-foreground: #566477;
+  --accent: #dbe6ff;
+  --accent-foreground: #050812;
   --destructive: #c0492f;
-  --border: #d0d8d4;
-  --input: #ccd5d0;
+  --border: #d2dae5;
+  --input: #cbd5e1;
   --ring: #2254ec;
-  --sidebar: #f6f8f7;
-  --sidebar-foreground: #06201e;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #050812;
   --sidebar-primary: #2254ec;
   --sidebar-primary-foreground: #f8fbff;
-  --sidebar-accent: #d6ece2;
-  --sidebar-accent-foreground: #06201e;
-  --sidebar-border: #d0d8d4;
+  --sidebar-accent: #dbe6ff;
+  --sidebar-accent-foreground: #050812;
+  --sidebar-border: #d2dae5;
   --sidebar-ring: #2254ec;
 }
 
-/* Dunkle Welt (Petrol-Ink) — Hero, Scroll-Bühne, Footer */
+/* Dunkle Welt (Blue-Black) — Hero, Scroll-Bühne, Footer */
 .dark {
-  --background: #06201e;
-  --foreground: #e6f0eb;
-  --card: #0e332f;
-  --card-foreground: #e6f0eb;
-  --popover: #0e332f;
-  --popover-foreground: #e6f0eb;
+  --background: #050812;
+  --foreground: #eef5ff;
+  --card: #0b1628;
+  --card-foreground: #eef5ff;
+  --popover: #0b1628;
+  --popover-foreground: #eef5ff;
   --primary: #2254ec;
   --primary-foreground: #f8fbff;
-  --secondary: #14413c;
-  --secondary-foreground: #e6f0eb;
-  --muted: #103a36;
-  --muted-foreground: #8aa39b;
-  --accent: #14413c;
-  --accent-foreground: #e6f0eb;
+  --secondary: #10213a;
+  --secondary-foreground: #eef5ff;
+  --muted: #0d1a2e;
+  --muted-foreground: #9cacbf;
+  --accent: #10213a;
+  --accent-foreground: #eef5ff;
   --destructive: #e0684a;
-  --border: color-mix(in oklab, #e6f0eb 12%, transparent);
-  --input: color-mix(in oklab, #e6f0eb 18%, transparent);
+  --border: color-mix(in oklab, #eef5ff 12%, transparent);
+  --input: color-mix(in oklab, #eef5ff 18%, transparent);
   --ring: #2254ec;
-  --sidebar: #0a2a27;
-  --sidebar-foreground: #e6f0eb;
+  --sidebar: #07101d;
+  --sidebar-foreground: #eef5ff;
   --sidebar-primary: #2254ec;
   --sidebar-primary-foreground: #f8fbff;
-  --sidebar-accent: #14413c;
-  --sidebar-accent-foreground: #e6f0eb;
-  --sidebar-border: color-mix(in oklab, #e6f0eb 12%, transparent);
+  --sidebar-accent: #10213a;
+  --sidebar-accent-foreground: #eef5ff;
+  --sidebar-border: color-mix(in oklab, #eef5ff 12%, transparent);
   --sidebar-ring: #2254ec;
 }
 
@@ -206,7 +206,7 @@
   /* Feines Display-Korn / Vignette über der Bühne */
   .stage-vignette {
     background:
-      radial-gradient(120% 80% at 50% 38%, transparent 38%, rgba(2, 14, 13, 0.55) 100%);
+      radial-gradient(120% 80% at 50% 38%, transparent 38%, rgba(3, 5, 11, 0.58) 100%);
   }
 
   .text-balance { text-wrap: balance; }
