@@ -27,16 +27,16 @@ export function HallBackdrop({
           <stop offset="100%" stopColor="#2254ec" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="hb-floor" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0b1628" stopOpacity="0.48" />
-          <stop offset="100%" stopColor="#050812" stopOpacity="0" />
+          <stop offset="0%" stopColor="#252e40" stopOpacity="0.62" />
+          <stop offset="100%" stopColor="#171b26" stopOpacity="0" />
         </linearGradient>
       </defs>
 
-      <rect width="1600" height="900" fill="#050812" />
+      <rect width="1600" height="900" fill="#171b26" />
       <rect width="1600" height="900" fill="url(#hb-spot)" />
 
       {/* Bodenraster */}
-      <g stroke="#1a3355" strokeWidth="1">
+      <g stroke="#4a6387" strokeWidth="1">
         {Array.from({ length: 17 }).map((_, k) => {
           const i = k - 8;
           return (
@@ -65,8 +65,8 @@ export function HallBackdrop({
         const y = 460 - h;
         return (
           <g key={i} opacity={b.o}>
-            <rect x={x} y={y} width={w} height={h} rx={6} fill="#0b1628" stroke="#1a3355" />
-            <rect x={x} y={y} width={w} height={38 * b.scale} rx={6} fill="#03050b" />
+            <rect x={x} y={y} width={w} height={h} rx={6} fill="#252e40" stroke="#4a6387" />
+            <rect x={x} y={y} width={w} height={38 * b.scale} rx={6} fill="#121722" />
             <circle cx={x + 22 * b.scale} cy={y + 19 * b.scale} r={5 * b.scale} fill="#2254ec" />
             {b.focus ? (
               <>
@@ -76,7 +76,7 @@ export function HallBackdrop({
                   width={84 * b.scale}
                   height={84 * b.scale}
                   rx={8 * b.scale}
-                  fill="#e6f0eb"
+                  fill="#f4f8ff"
                 />
                 <circle cx={b.x} cy={y + 112 * b.scale} r={120 * b.scale} fill="none" stroke="#2254ec" strokeWidth="1.5" opacity="0.5" />
               </>
@@ -87,7 +87,7 @@ export function HallBackdrop({
                 width={68 * b.scale}
                 height={68 * b.scale}
                 rx={6 * b.scale}
-                fill="#1a3355"
+                fill="#4a6387"
                 opacity="0.5"
               />
             )}

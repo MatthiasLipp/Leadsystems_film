@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const STAGE_VH = 540;
 
-const INK = "#050812";
+const INK = "#171b26";
 
 type Beat = {
   id: string;
@@ -27,14 +27,14 @@ const BEATS: Beat[] = [
     eyebrow: "Das Problem",
     title: "Die teuersten Leads des Jahres — auf Zetteln.",
     body: "Visitenkarten, Notizen, Gedächtnis. Das Follow-up kommt Tage später, ohne Kontext. Bis dahin ist das Interesse kalt — und der Messeauftritt bleibt eine Zahl ohne Rendite.",
-    range: [0.07, 0.32],
+    range: [0.04, 0.38],
   },
   {
     id: "scan",
     eyebrow: "Der Moment",
     title: "Ein Scan – und der Kontakt ist erfasst.",
     body: "Der Besucher scannt den QR-Code am Stand. Der Lead wird sofort digital erfasst, qualifiziert und Ihrem Team zugeordnet — DSGVO-konform per Double-Opt-in.",
-    range: [0.4, 0.6],
+    range: [0.34, 0.68],
   },
   {
     id: "loesung",
@@ -46,7 +46,7 @@ const BEATS: Beat[] = [
       "Konkreter Terminvorschlag",
       "Nurture-Sequenz bis zum Abschluss",
     ],
-    range: [0.68, 0.94],
+    range: [0.64, 0.98],
   },
 ];
 
@@ -55,7 +55,7 @@ const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 function beatOpacity(progress: number, [start, end]: [number, number]): number {
   const local = (progress - start) / (end - start);
   if (local < 0 || local > 1) return 0;
-  const fade = 0.2;
+  const fade = 0.1;
   if (local < fade) return local / fade;
   if (local > 1 - fade) return (1 - local) / fade;
   return 1;
@@ -245,11 +245,11 @@ export function ScrollStage() {
         {/* Scrollabhängige Lesbarkeits-Schatten: kräftig am Anfang, offen am Ende. */}
         <div
           ref={leftScrimRef}
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(3,5,11,0.98)_0%,rgba(5,8,18,0.94)_32%,rgba(7,16,29,0.56)_58%,rgba(5,8,18,0)_84%)]"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(23,27,38,0.95)_0%,rgba(29,36,50,0.86)_32%,rgba(37,46,64,0.48)_58%,rgba(23,27,38,0)_84%)]"
         />
         <div
           ref={leftBoostRef}
-          className="pointer-events-none absolute inset-y-0 left-0 w-[76%] bg-[radial-gradient(80%_88%_at_0%_50%,rgba(0,0,0,0.74)_0%,rgba(3,5,11,0.54)_45%,rgba(3,5,11,0)_100%)]"
+          className="pointer-events-none absolute inset-y-0 left-0 w-[76%] bg-[radial-gradient(80%_88%_at_0%_50%,rgba(0,0,0,0.58)_0%,rgba(23,27,38,0.44)_45%,rgba(23,27,38,0)_100%)]"
         />
         <div
           ref={bottomScrimRef}
@@ -272,17 +272,18 @@ export function ScrollStage() {
               {BEATS.map((b, i) => (
                 <div
                   key={b.id}
+                  data-story-beat={b.id}
                   ref={(el) => { beatRefs.current[i] = el; }}
                   className="absolute inset-x-0 top-0"
                   style={{ opacity: 0 }}
                 >
-                  <p className="label-mono text-pulse [text-shadow:0_1px_10px_rgba(3,5,11,0.7)]">{b.eyebrow}</p>
-                  <h2 className="mt-3 font-sans text-4xl font-semibold leading-[1.08] tracking-normal text-mist md:text-5xl [text-shadow:0_2px_22px_rgba(3,5,11,0.76),0_1px_3px_rgba(3,5,11,0.65)]">{b.title}</h2>
-                  <p className="mt-5 max-w-lg font-sans text-lg font-medium leading-relaxed text-mist/95 text-pretty md:text-xl [text-shadow:0_1px_14px_rgba(3,5,11,0.72)]">{b.body}</p>
+                  <p className="label-mono text-pulse [text-shadow:0_1px_10px_rgba(23,27,38,0.7)]">{b.eyebrow}</p>
+                  <h2 className="mt-3 font-sans text-4xl font-semibold leading-[1.08] tracking-normal text-mist md:text-5xl [text-shadow:0_2px_22px_rgba(23,27,38,0.76),0_1px_3px_rgba(23,27,38,0.65)]">{b.title}</h2>
+                  <p className="mt-5 max-w-lg font-sans text-lg font-medium leading-relaxed text-mist/95 text-pretty md:text-xl [text-shadow:0_1px_14px_rgba(23,27,38,0.72)]">{b.body}</p>
                   {b.steps && (
                     <ol className="mt-7 space-y-3">
                       {b.steps.map((s, idx) => (
-                        <li key={s} className="flex items-baseline gap-4 font-sans font-medium [text-shadow:0_1px_12px_rgba(3,5,11,0.74)]">
+                        <li key={s} className="flex items-baseline gap-4 font-sans font-medium [text-shadow:0_1px_12px_rgba(23,27,38,0.74)]">
                           <span className="label-mono text-pulse">{String(idx + 1).padStart(2, "0")}</span>
                           <span className="text-mist">{s}</span>
                         </li>

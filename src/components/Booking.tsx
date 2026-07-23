@@ -2,23 +2,17 @@ import { useRef } from "react";
 import { ArrowUpRight, CalendarCheck, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveals } from "@/hooks/useReveals";
+import { CONTACT_EMAIL, FIRST_CALL_MAILTO } from "@/lib/contact";
 
 // Buchungslink — echte URL in .env als VITE_CAL_URL hinterlegen.
 // Solange nur der Platzhalter steht, zeigt die Sektion ein Anfrage-Panel
 // statt eines kaputten Embeds.
 const PLACEHOLDER_URL = "https://cal.com/leadsystems/erstgespraech";
 const CAL_URL = import.meta.env.VITE_CAL_URL ?? PLACEHOLDER_URL;
-const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL ?? "kontakt@leadsystems.de";
 
 // Ein konfigurierter Link ist gesetzt, nicht der Platzhalter und eine echte URL.
 const isBookingConfigured =
   CAL_URL.length > 0 && CAL_URL !== PLACEHOLDER_URL && /^https?:\/\//.test(CAL_URL);
-
-const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-  "Erstgespräch — Leadsystems",
-)}&body=${encodeURIComponent(
-  "Hallo Leadsystems-Team,\n\nich möchte ein Erstgespräch zu unserem Messeauftritt vereinbaren.\n\nUnternehmen:\nNächste Messe:\nWunschtermin:\n\nViele Grüße",
-)}`;
 
 const POINTS = [
   { icon: Clock, text: "30 Minuten, unverbindlich" },
@@ -70,7 +64,7 @@ export function Booking() {
             variant="outline"
             className="mt-9 rounded-full border-ink/20 px-6 text-base"
           >
-            <a href={isBookingConfigured ? CAL_URL : MAILTO} {...(isBookingConfigured ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+            <a href={isBookingConfigured ? CAL_URL : FIRST_CALL_MAILTO} {...(isBookingConfigured ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
               {isBookingConfigured ? "In neuem Tab öffnen" : "Per E-Mail anfragen"}
             </a>
           </Button>
@@ -110,7 +104,7 @@ export function Booking() {
                     size="lg"
                     className="rounded-full px-6 text-base"
                   >
-                    <a href={MAILTO}>
+                    <a href={FIRST_CALL_MAILTO}>
                       Erstgespräch anfragen
                       <ArrowUpRight className="size-5" aria-hidden="true" />
                     </a>
