@@ -3,14 +3,16 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveals } from "@/hooks/useReveals";
 
+const TEAM_IMAGE_PATH = `${import.meta.env.BASE_URL}team/`;
+
 const PEOPLE = [
   {
-    src: "/team/leadsystems-founder-portrait.webp",
+    src: `${TEAM_IMAGE_PATH}leadsystems-founder-portrait.webp`,
     alt: "Leadsystems Teammitglied im schwarzen Leadsystems-Shirt.",
     role: "Produkt, Automatisierung & Umsetzung",
   },
   {
-    src: "/team/leadsystems-team-portrait.webp",
+    src: `${TEAM_IMAGE_PATH}leadsystems-team-portrait.webp`,
     alt: "Leadsystems Teammitglied vor dunklem Studiohintergrund.",
     role: "Vertrieb, Kundenprozesse & Messe-Setup",
   },

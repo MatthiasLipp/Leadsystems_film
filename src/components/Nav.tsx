@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Mail, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FIRST_CALL_MAILTO } from "@/lib/contact";
 import {
@@ -57,7 +57,10 @@ export function Nav() {
             ))}
           </ul>
           <Button asChild size="sm" className="rounded-full font-medium">
-            <a href={FIRST_CALL_MAILTO}>Erstgespräch anfragen</a>
+            <a href={FIRST_CALL_MAILTO}>
+              E-Mail anfragen
+              <Mail className="size-3.5" aria-hidden="true" />
+            </a>
           </Button>
         </div>
 
@@ -93,7 +96,10 @@ export function Nav() {
                 ))}
                 <SheetClose asChild>
                   <Button asChild size="lg" className="mt-4 rounded-full">
-                    <a href={FIRST_CALL_MAILTO}>Erstgespräch anfragen</a>
+                    <a href={FIRST_CALL_MAILTO}>
+                      Per E-Mail anfragen
+                      <Mail className="size-5" aria-hidden="true" />
+                    </a>
                   </Button>
                 </SheetClose>
               </div>

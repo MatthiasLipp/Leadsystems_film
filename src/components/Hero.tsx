@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
+import { ArrowDown, Check, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HallBackdrop } from "@/components/HallBackdrop";
 import { FIRST_CALL_MAILTO } from "@/lib/contact";
@@ -75,8 +75,8 @@ export function Hero() {
           <div data-hero="cta" className="mt-9 flex flex-wrap items-center gap-4">
             <Button asChild size="lg" className="rounded-full px-7 text-base font-medium">
               <a href={FIRST_CALL_MAILTO}>
-                Erstgespräch anfragen
-                <ArrowUpRight className="size-5" aria-hidden="true" />
+                Per E-Mail anfragen
+                <Mail className="size-5" aria-hidden="true" />
               </a>
             </Button>
             <Button
