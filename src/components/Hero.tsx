@@ -21,10 +21,8 @@ export function Hero() {
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.from("[data-hero='eyebrow']", { opacity: 0, y: 16, duration: 0.6 })
-        .from("[data-hero='title'] > span", { opacity: 0, y: 30, duration: 0.8, stagger: 0.1 }, "-=0.3")
-        .from("[data-hero='sub']", { opacity: 0, y: 20, duration: 0.7 }, "-=0.45")
-        .from("[data-hero='cta'] > *", { opacity: 0, y: 16, duration: 0.6, stagger: 0.1 }, "-=0.4")
+      tl.from("[data-hero='title'] > span", { opacity: 0, y: 30, duration: 0.8, stagger: 0.1 })
+        .from("[data-hero='sub']", { opacity: 0, y: 20, duration: 0.7 }, "-=0.35")
         .from("[data-hero='trust'] li", { opacity: 0, y: 12, duration: 0.5, stagger: 0.08 }, "-=0.3")
         .from("[data-hero='card']", { opacity: 0, y: 40, scale: 0.96, duration: 0.9 }, "-=0.9")
         .from("[data-hero='backdrop']", { opacity: 0, duration: 1.2 }, 0);
@@ -50,30 +48,21 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-28 pb-20 lg:grid-cols-12 lg:gap-8 lg:pt-24">
         {/* Text */}
         <div className="lg:col-span-7">
-          <p data-hero="eyebrow" className="label-mono text-pulse">
-            Messe-Lead-Infrastruktur
-          </p>
-
           <h1
             data-hero="title"
-            className="mt-6 text-balance font-display text-[clamp(2.6rem,6vw,4.75rem)] font-bold leading-[1.02] text-mist"
+            className="text-balance font-display text-[clamp(2.6rem,6vw,4.75rem)] font-bold leading-[1.02] text-mist"
           >
             <span className="block">Aus Messekontakten</span>
             <span className="block">werden Abschlüsse —</span>
             <span className="block italic font-semibold text-pulse">bevor der Stand abgebaut ist.</span>
           </h1>
 
-          <p
-            data-hero="sub"
-            className="mt-7 max-w-xl text-lg leading-relaxed text-sage text-pretty md:text-xl"
-          >
-            Leadsystems erfasst jeden Besucher per QR-Scan, qualifiziert ihn automatisch und
-            startet sofort einen WhatsApp-Workflow. Ihr Vertrieb übernimmt warme, kontextreiche
-            Leads in Echtzeit — statt am Montag einen kalten Stapel Visitenkarten.
-          </p>
-
-          <div data-hero="cta" className="mt-9 flex flex-wrap items-center gap-4">
-            <Button asChild size="lg" className="rounded-full px-7 text-base font-medium">
+          <div data-hero="cta" className="mt-8 flex flex-wrap items-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="h-12 rounded-full px-7 text-base font-semibold shadow-lg shadow-pulse/25"
+            >
               <a href={FIRST_CALL_MAILTO}>
                 Per E-Mail anfragen
                 <Mail className="size-5" aria-hidden="true" />
@@ -83,7 +72,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="ghost"
-              className="rounded-full px-6 text-base text-mist hover:bg-mist/10 hover:text-mist"
+              className="h-12 rounded-full px-6 text-base text-mist hover:bg-mist/10 hover:text-mist"
             >
               <a href="#story" className="group inline-flex items-center gap-2">
                 So funktioniert's
@@ -91,6 +80,15 @@ export function Hero() {
               </a>
             </Button>
           </div>
+
+          <p
+            data-hero="sub"
+            className="mt-7 max-w-xl text-lg leading-relaxed text-sage text-pretty md:text-xl"
+          >
+            Leadsystems erfasst jeden Besucher per QR-Scan, qualifiziert ihn automatisch und
+            startet sofort einen WhatsApp-Workflow. Ihr Vertrieb übernimmt warme, kontextreiche
+            Leads in Echtzeit — statt am Montag einen kalten Stapel Visitenkarten.
+          </p>
 
           <ul data-hero="trust" className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-7">
             {TRUST.map((t) => (
