@@ -126,7 +126,7 @@ export function SocialProof() {
               <h3 className="text-2xl font-semibold leading-tight text-ink">
                 Kundenüberblick
               </h3>
-              <p className="mt-1 text-sm text-slate">Energy3000 · letzte 30 Tage</p>
+              <p className="mt-1 text-sm text-slate">Alle Kunden · letzte 30 Tage</p>
             </div>
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-pulse/10 px-3 py-1 text-sm font-semibold text-pulse-deep">
               <span className="size-2 rounded-full bg-pulse" aria-hidden="true" />

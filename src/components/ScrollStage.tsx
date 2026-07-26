@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const STAGE_VH = 540;
 
-const INK = "#2f394d";
+const INK = "#070b16";
 
 type Beat = {
   id: string;

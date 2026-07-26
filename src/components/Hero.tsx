@@ -1,14 +1,14 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { ArrowDown, Check, Mail } from "lucide-react";
+import { ArrowRight, Mail, ScanLine, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HallBackdrop } from "@/components/HallBackdrop";
+import { LiveCapture } from "@/components/LiveCapture";
 import { FIRST_CALL_MAILTO } from "@/lib/contact";
 
 const TRUST = [
-  "Lead erfasst in unter 2 Sekunden",
-  "DSGVO-konform per Double-Opt-in",
-  "In Echtzeit beim Vertriebsteam",
+  { Icon: ScanLine, text: "Erfasst in unter 2 Sekunden" },
+  { Icon: Zap, text: "In Echtzeit beim Vertriebsteam" },
 ];
 
 export function Hero() {
@@ -35,33 +35,40 @@ export function Hero() {
     <section
       id="top"
       ref={scope}
-      className="dark relative isolate flex min-h-screen items-center overflow-hidden bg-ink text-mist"
+      className="dark relative isolate flex min-h-screen items-center overflow-hidden bg-[#070b16] text-mist"
     >
       <HallBackdrop
-        className="absolute inset-0 -z-10 h-full w-full opacity-90"
+        className="absolute inset-0 -z-10 h-full w-full"
         data-hero="backdrop"
       />
-      {/* Lesbarkeits-Overlays */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/70 to-ink/20" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-ink to-transparent" />
+      {/* Lesbarkeits-Overlays — links dunkel, damit der Text trägt */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070b16] via-[#070b16]/85 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t from-ink to-transparent" />
 
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-28 pb-20 lg:grid-cols-12 lg:gap-8 lg:pt-24">
+      {/* Kodak-Filmkorn — voll oben, verläuft nach unten in sauberes Schwarz */}
+      <div
+        aria-hidden="true"
+        className="film-grain pointer-events-none absolute inset-0 z-[5] opacity-[0.2]"
+      />
+
+      <div className="mx-auto grid w-full max-w-[90rem] grid-cols-1 items-center gap-10 px-6 pt-28 pb-16 lg:grid-cols-12 lg:gap-10 lg:pt-24">
         {/* Text */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-6">
           <h1
             data-hero="title"
-            className="text-balance font-display text-[clamp(2.6rem,6vw,4.75rem)] font-bold leading-[1.02] text-mist"
+            className="text-balance font-sans text-[clamp(2.3rem,4.4vw,3.8rem)] font-bold leading-[1.05] tracking-[-0.02em] text-white"
           >
             <span className="block">Aus Messekontakten</span>
-            <span className="block">werden Abschlüsse —</span>
-            <span className="block italic font-semibold text-pulse">bevor der Stand abgebaut ist.</span>
+            <span className="block">werden Abschlüsse.</span>
+            <span className="block text-[#3b82f6]">Bevor der Stand</span>
+            <span className="block text-[#3b82f6]">abgebaut ist.</span>
           </h1>
 
           <div data-hero="cta" className="mt-8 flex flex-wrap items-center gap-4">
             <Button
               asChild
               size="lg"
-              className="h-12 rounded-full px-7 text-base font-semibold shadow-lg shadow-pulse/25"
+              className="h-12 rounded-full bg-[#2f6bff] px-7 text-base font-semibold text-white shadow-lg shadow-[#2f6bff]/30 hover:bg-[#2f6bff]/90"
             >
               <a href={FIRST_CALL_MAILTO}>
                 Per E-Mail anfragen
@@ -71,72 +78,43 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              variant="ghost"
-              className="h-12 rounded-full px-6 text-base text-mist hover:bg-mist/10 hover:text-mist"
+              variant="outline"
+              className="h-12 rounded-full border-white/15 bg-white/[0.03] px-6 text-base text-mist hover:border-white/25 hover:bg-white/[0.06] hover:text-white"
             >
               <a href="#story" className="group inline-flex items-center gap-2">
                 So funktioniert's
-                <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" />
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             </Button>
           </div>
 
           <p
             data-hero="sub"
-            className="mt-7 max-w-xl text-lg leading-relaxed text-sage text-pretty md:text-xl"
+            className="mt-7 max-w-xl text-lg leading-relaxed text-[#9fb0cf] text-pretty"
           >
             Leadsystems erfasst jeden Besucher per QR-Scan, qualifiziert ihn automatisch und
             startet sofort einen WhatsApp-Workflow. Ihr Vertrieb übernimmt warme, kontextreiche
             Leads in Echtzeit — statt am Montag einen kalten Stapel Visitenkarten.
           </p>
 
-          <ul data-hero="trust" className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-7">
-            {TRUST.map((t) => (
-              <li key={t} className="flex items-center gap-2.5 text-sm text-mist/75">
-                <Check className="size-4 shrink-0 text-pulse" aria-hidden="true" />
-                {t}
+          <ul data-hero="trust" className="mt-9 flex flex-wrap gap-2.5">
+            {TRUST.map(({ Icon, text }) => (
+              <li
+                key={text}
+                className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-2 pr-4 backdrop-blur-sm"
+              >
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#2f6bff]/15 text-[#6aa5ff] shadow-[0_0_16px_rgba(47,107,255,0.4)]">
+                  <Icon className="size-4" aria-hidden="true" />
+                </span>
+                <span className="text-sm text-[#9fb0cf]">{text}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Live-Capture-Proof */}
-        <div className="lg:col-span-5">
-          <div
-            data-hero="card"
-            className="relative mx-auto max-w-sm rounded-2xl border border-mist/12 bg-ink-700/70 p-5 shadow-2xl shadow-black/40 backdrop-blur-md"
-          >
-            <div className="flex items-center justify-between">
-              <span className="label-mono text-pulse">Lead erfasst</span>
-              <span className="label-mono text-sage">14:02:11</span>
-            </div>
-
-            <div className="mt-5 flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-full bg-pulse/15 text-lg font-semibold text-pulse">
-                MW
-              </div>
-              <div>
-                <p className="text-lg font-semibold leading-tight text-mist">
-                  Markus Wegner
-                </p>
-                <p className="text-sm text-sage">Einkaufsleiter · NordTech GmbH</p>
-              </div>
-              <span className="ml-auto rounded-full bg-pulse/15 px-3 py-1 text-sm font-medium text-pulse">
-                Score 87
-              </span>
-            </div>
-
-            <div className="mt-5 rounded-xl bg-ink/70 p-4">
-              <span className="label-mono text-sage">WhatsApp · automatisch</span>
-              <div className="mt-3 flex justify-end">
-                <p className="max-w-[85%] rounded-2xl rounded-br-sm bg-pulse px-4 py-2.5 text-sm leading-snug text-white">
-                  Hallo Herr Wegner, danke für Ihren Besuch an Stand B12! Passt Dienstag 11:00 Uhr
-                  für ein kurzes Gespräch?
-                </p>
-              </div>
-              <p className="mt-2 text-right text-xs text-sage">Zugestellt · 14:02:13</p>
-            </div>
-          </div>
+        <div className="lg:col-span-6">
+          <LiveCapture />
         </div>
       </div>
     </section>

@@ -1,17 +1,19 @@
 /**
- * Dezenter Messehallen-Eindruck als Hintergrund des Hero: mehrere Stände in
- * Perspektive, Bodenraster, Spotlight. Bewusst gedämpft — der Text führt.
+ * Dunkle Hero-Bühne: nahezu schwarzer Grund, weiches elektrisches Blau-Glühen
+ * hinter der Chat-Karte, feines Perspektiv-Raster am Boden und vereinzelte
+ * Funkenpunkte. Bewusst reduziert — Licht führt den Blick zur Live-Karte.
  */
 export function HallBackdrop({
   className = "",
   ...props
 }: React.ComponentPropsWithoutRef<"svg">) {
-  const booths = [
-    { x: 140, scale: 0.72, o: 0.5 },
-    { x: 470, scale: 0.86, o: 0.7 },
-    { x: 800, scale: 1.12, o: 1, focus: true },
-    { x: 1180, scale: 0.86, o: 0.7 },
-    { x: 1500, scale: 0.72, o: 0.5 },
+  const sparks = [
+    { x: 760, y: 300, r: 2 },
+    { x: 820, y: 470, r: 1.5 },
+    { x: 900, y: 250, r: 1.6 },
+    { x: 700, y: 560, r: 1.4 },
+    { x: 960, y: 620, r: 2 },
+    { x: 640, y: 360, r: 1.4 },
   ];
   return (
     <svg
@@ -22,78 +24,63 @@ export function HallBackdrop({
       {...props}
     >
       <defs>
-        <radialGradient id="hb-spot" cx="50%" cy="6%" r="62%">
-          <stop offset="0%" stopColor="#3d5fa5" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#3d5fa5" stopOpacity="0" />
+        <radialGradient id="hb-glow" cx="70%" cy="34%" r="50%">
+          <stop offset="0%" stopColor="#2f6bff" stopOpacity="0.48" />
+          <stop offset="45%" stopColor="#2f6bff" stopOpacity="0.13" />
+          <stop offset="100%" stopColor="#2f6bff" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="hb-glow2" cx="86%" cy="58%" r="42%">
+          <stop offset="0%" stopColor="#3f8bff" stopOpacity="0.28" />
+          <stop offset="100%" stopColor="#3f8bff" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="hb-floor" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#404d65" stopOpacity="0.64" />
-          <stop offset="100%" stopColor="#2f394d" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2f6bff" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#2f6bff" stopOpacity="0" />
         </linearGradient>
+        <radialGradient id="hb-vig" cx="50%" cy="42%" r="75%">
+          <stop offset="55%" stopColor="#070b16" stopOpacity="0" />
+          <stop offset="100%" stopColor="#04060d" stopOpacity="0.9" />
+        </radialGradient>
       </defs>
 
-      <rect width="1600" height="900" fill="#2f394d" />
-      <rect width="1600" height="900" fill="url(#hb-spot)" />
+      {/* Grund */}
+      <rect width="1600" height="900" fill="#070b16" />
 
-      {/* Bodenraster */}
-      <g stroke="#6f82a4" strokeWidth="1">
-        {Array.from({ length: 17 }).map((_, k) => {
-          const i = k - 8;
+      {/* Perspektiv-Bodenraster */}
+      <g stroke="#3f6bd0" strokeWidth="1">
+        {Array.from({ length: 21 }).map((_, k) => {
+          const i = k - 10;
           return (
             <line
               key={`v${k}`}
-              x1={800 + i * 14}
-              y1={430}
-              x2={800 + i * 150}
+              x1={800 + i * 18}
+              y1={470}
+              x2={800 + i * 190}
               y2={900}
-              opacity={0.3}
+              opacity={0.14}
             />
           );
         })}
-        {Array.from({ length: 6 }).map((_, r) => {
-          const yy = 430 + Math.pow((r + 1) / 6, 2) * 470;
-          return <line key={`h${r}`} x1={0} y1={yy} x2={1600} y2={yy} opacity={0.22} />;
+        {Array.from({ length: 7 }).map((_, r) => {
+          const yy = 470 + Math.pow((r + 1) / 7, 2) * 430;
+          return <line key={`h${r}`} x1={0} y1={yy} x2={1600} y2={yy} opacity={0.1} />;
         })}
       </g>
-      <rect x="0" y="430" width="1600" height="470" fill="url(#hb-floor)" />
+      <rect x="0" y="470" width="1600" height="430" fill="url(#hb-floor)" />
 
-      {/* Stände */}
-      {booths.map((b, i) => {
-        const w = 300 * b.scale;
-        const h = 210 * b.scale;
-        const x = b.x - w / 2;
-        const y = 460 - h;
-        return (
-          <g key={i} opacity={b.o}>
-            <rect x={x} y={y} width={w} height={h} rx={6} fill="#404d65" stroke="#6f82a4" />
-            <rect x={x} y={y} width={w} height={38 * b.scale} rx={6} fill="#263144" />
-            <circle cx={x + 22 * b.scale} cy={y + 19 * b.scale} r={5 * b.scale} fill="#3d5fa5" />
-            {b.focus ? (
-              <>
-                <rect
-                  x={b.x - 42 * b.scale}
-                  y={y + 70 * b.scale}
-                  width={84 * b.scale}
-                  height={84 * b.scale}
-                  rx={8 * b.scale}
-                  fill="#f4f8ff"
-                />
-                <circle cx={b.x} cy={y + 112 * b.scale} r={120 * b.scale} fill="none" stroke="#3d5fa5" strokeWidth="1.5" opacity="0.5" />
-              </>
-            ) : (
-              <rect
-                x={b.x - 34 * b.scale}
-                y={y + 76 * b.scale}
-                width={68 * b.scale}
-                height={68 * b.scale}
-                rx={6 * b.scale}
-                fill="#6f82a4"
-                opacity="0.5"
-              />
-            )}
-          </g>
-        );
-      })}
+      {/* Blau-Glühen hinter der Karte */}
+      <rect width="1600" height="900" fill="url(#hb-glow)" />
+      <rect width="1600" height="900" fill="url(#hb-glow2)" />
+
+      {/* Funkenpunkte */}
+      <g fill="#8fbaff">
+        {sparks.map((s, i) => (
+          <circle key={i} cx={s.x} cy={s.y} r={s.r} opacity={0.5} />
+        ))}
+      </g>
+
+      {/* Vignette */}
+      <rect width="1600" height="900" fill="url(#hb-vig)" />
     </svg>
   );
 }

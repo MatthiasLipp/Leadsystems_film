@@ -15,21 +15,21 @@
   --font-sans: "Switzer", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
-  /* Marken-Farbtoken */
-  --color-ink: #2f394d;
-  --color-ink-800: #364258;
-  --color-ink-700: #404d65;
-  --color-ink-600: #51627f;
-  --color-ink-500: #6f82a4;
-  --color-porcelain: #f5f7fb;
-  --color-porcelain-200: #e4e9f2;
+  /* Marken-Farbtoken — Cyberpunk-Dunkel wie in der Hero */
+  --color-ink: #070b16;
+  --color-ink-800: #0b1120;
+  --color-ink-700: #0e1728;
+  --color-ink-600: #16233c;
+  --color-ink-500: #2a3a58;
+  --color-porcelain: #ffffff;
+  --color-porcelain-200: #eef2f8;
   --color-paper: #ffffff;
-  --color-pulse: #3d5fa5;
-  --color-pulse-strong: #315492;
-  --color-pulse-deep: #27477f;
-  --color-mist: #f7faff;
-  --color-sage: #c1ccdc;
-  --color-slate: #68778d;
+  --color-pulse: #2f6bff;
+  --color-pulse-strong: #2559d8;
+  --color-pulse-deep: #1e46b0;
+  --color-mist: #ffffff;
+  --color-sage: #9fb0cf;
+  --color-slate: #7c8bab;
 
   /* shadcn semantische Token → an Marke gekoppelt */
   --color-sidebar-ring: var(--sidebar-ring);
@@ -69,63 +69,63 @@
 /* Helle Welt (Porzellan) — Standardkontext für Inhaltssektionen */
 :root {
   --radius: 0.5rem;
-  --background: #f5f7fb;
-  --foreground: #172033;
+  --background: #ffffff;
+  --foreground: #0b1220;
   --card: #ffffff;
-  --card-foreground: #172033;
+  --card-foreground: #0b1220;
   --popover: #ffffff;
-  --popover-foreground: #172033;
+  --popover-foreground: #0b1220;
   /* Primär-CTA = Marken-Puls, in JEDEM Kontext identisch */
-  --primary: #3d5fa5;
-  --primary-foreground: #f8fbff;
-  --secondary: #e4e9f2;
-  --secondary-foreground: #172033;
-  --muted: #e9edf5;
-  --muted-foreground: #68778d;
-  --accent: #e2e9f7;
-  --accent-foreground: #172033;
+  --primary: #2f6bff;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2f8;
+  --secondary-foreground: #0b1220;
+  --muted: #f2f5fa;
+  --muted-foreground: #5a6b86;
+  --accent: #e8effb;
+  --accent-foreground: #0b1220;
   --destructive: #c0492f;
-  --border: #d8e0ec;
-  --input: #d2dbe8;
-  --ring: #3d5fa5;
+  --border: #e6ebf3;
+  --input: #e0e7f1;
+  --ring: #2f6bff;
   --sidebar: #ffffff;
-  --sidebar-foreground: #172033;
-  --sidebar-primary: #3d5fa5;
-  --sidebar-primary-foreground: #f8fbff;
-  --sidebar-accent: #e2e9f7;
-  --sidebar-accent-foreground: #172033;
-  --sidebar-border: #d8e0ec;
-  --sidebar-ring: #3d5fa5;
+  --sidebar-foreground: #0b1220;
+  --sidebar-primary: #2f6bff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8effb;
+  --sidebar-accent-foreground: #0b1220;
+  --sidebar-border: #e6ebf3;
+  --sidebar-ring: #2f6bff;
 }
 
 /* Dunkle Welt (Light Steel) — Hero, Scroll-Bühne, Footer */
 .dark {
-  --background: #2f394d;
-  --foreground: #f4f8ff;
-  --card: #404d65;
-  --card-foreground: #f4f8ff;
-  --popover: #404d65;
-  --popover-foreground: #f4f8ff;
-  --primary: #3d5fa5;
-  --primary-foreground: #f8fbff;
-  --secondary: #51627f;
-  --secondary-foreground: #f4f8ff;
-  --muted: #46556f;
-  --muted-foreground: #c1ccdc;
-  --accent: #51627f;
-  --accent-foreground: #f4f8ff;
+  --background: #070b16;
+  --foreground: #ffffff;
+  --card: #0e1728;
+  --card-foreground: #ffffff;
+  --popover: #0e1728;
+  --popover-foreground: #ffffff;
+  --primary: #2f6bff;
+  --primary-foreground: #ffffff;
+  --secondary: #16233c;
+  --secondary-foreground: #ffffff;
+  --muted: #131c30;
+  --muted-foreground: #9fb0cf;
+  --accent: #16233c;
+  --accent-foreground: #ffffff;
   --destructive: #e0684a;
-  --border: color-mix(in oklab, #f4f8ff 14%, transparent);
-  --input: color-mix(in oklab, #f4f8ff 20%, transparent);
-  --ring: #3d5fa5;
-  --sidebar: #364258;
-  --sidebar-foreground: #f4f8ff;
-  --sidebar-primary: #3d5fa5;
-  --sidebar-primary-foreground: #f8fbff;
-  --sidebar-accent: #51627f;
-  --sidebar-accent-foreground: #f4f8ff;
-  --sidebar-border: color-mix(in oklab, #f4f8ff 14%, transparent);
-  --sidebar-ring: #3d5fa5;
+  --border: color-mix(in oklab, #ffffff 12%, transparent);
+  --input: color-mix(in oklab, #ffffff 18%, transparent);
+  --ring: #2f6bff;
+  --sidebar: #0b1120;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #2f6bff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #16233c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: color-mix(in oklab, #ffffff 12%, transparent);
+  --sidebar-ring: #2f6bff;
 }
 
 @layer base {
@@ -211,6 +211,26 @@
 
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
+
+  /* Kodak-Filmkorn: monochromes fractalNoise, flackert leicht.
+     Verlauf von vollem Korn oben zu komplett sauberem Schwarz unten. */
+  .film-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+    animation: film-grain 0.6s steps(1) infinite;
+    /* Volles Korn nur ganz oben, dann langer weicher Verlauf bis auf null */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 6%, transparent 85%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 6%, transparent 85%);
+  }
+}
+
+@keyframes film-grain {
+  0%   { background-position: 0 0; }
+  20%  { background-position: -42px 28px; }
+  40%  { background-position: 48px -38px; }
+  60%  { background-position: -30px 46px; }
+  80%  { background-position: 56px -18px; }
+  100% { background-position: 0 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
