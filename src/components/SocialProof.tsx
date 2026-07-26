@@ -1,38 +1,26 @@
 import { useRef } from "react";
 import { useReveals } from "@/hooks/useReveals";
 
-// PLATZHALTER — echte Kundenlogos später hier eintragen.
-const LOGOS = [
-  "NORDTECH",
-  "Messebau Koch",
-  "VELTORA",
-  "Hanse Industrie",
-  "KRAFTWERK",
-  "Aurelis Group",
-];
-
-// PLATZHALTER — echte Kennzahlen/Testimonials nach Freigabe einsetzen.
 const STATS = [
-  { value: "< 2 Sek.", label: "vom Scan zum erfassten Lead" },
-  { value: "3×", label: "höhere Follow-up-Quote *" },
-  { value: "100 %", label: "DSGVO-konforme Erfassung" },
+  {
+    value: "0 Zettel",
+    label: "Kontakte werden direkt digital erfasst.",
+  },
+  {
+    value: "Sofort",
+    label: "Der erste WhatsApp-Kontakt kann direkt nach dem Scan starten.",
+  },
+  {
+    value: "1 Übersicht",
+    label: "Leads, Status und nächste Schritte bleiben an einem Ort.",
+  },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Früher haben wir nach jeder Messe Visitenkarten abgetippt. Heute steht der erste WhatsApp-Kontakt, bevor der Besucher den Hallengang verlassen hat.",
-    name: "Vorname Nachname",
-    role: "Leitung Marketing",
-    company: "Musterfirma GmbH",
-  },
-  {
-    quote:
-      "Endlich sehen wir den echten Pipeline-Wert pro Messe. Die Diskussion über das Messebudget ist damit eine andere geworden.",
-    name: "Vorname Nachname",
-    role: "Head of Sales",
-    company: "Beispiel AG",
-  },
+const OVERVIEW_ROWS = [
+  { label: "Anfragen beantwortet", value: 92 },
+  { label: "Follow-ups erledigt", value: 88 },
+  { label: "Termine vorbereitet", value: 76 },
+  { label: "Offene Rückmeldungen geklärt", value: 54 },
 ];
 
 export function SocialProof() {
@@ -54,32 +42,21 @@ export function SocialProof() {
             <h2 data-reveal className="mt-4 text-balance text-4xl leading-[1.05] md:text-5xl">
               Gebaut für Aussteller, die ihr Messebudget ernst nehmen.
             </h2>
+            <p data-reveal className="mt-5 max-w-xl text-lg leading-relaxed text-sage text-pretty">
+              Nach der Messe zählt nicht, wie viele Visitenkarten gesammelt wurden.
+              Entscheidend ist, ob aus den Gesprächen klare nächste Schritte werden.
+            </p>
           </div>
           <span
             data-reveal
             className="label-mono rounded-full border border-mist/15 px-3 py-1.5 text-sage"
           >
-            Platzhalter-Inhalte
+            Kundenbeispiel
           </span>
         </div>
 
-        {/* Logo-Reihe */}
-        <div
-          data-reveal
-          className="mt-12 grid grid-cols-2 items-center gap-x-6 gap-y-8 border-y border-mist/10 py-9 sm:grid-cols-3 lg:grid-cols-6"
-        >
-          {LOGOS.map((l) => (
-            <span
-              key={l}
-              className="text-center font-display text-lg font-medium text-mist/45"
-            >
-              {l}
-            </span>
-          ))}
-        </div>
-
         {/* Kennzahlen */}
-        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-mist/10 bg-mist/10 sm:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-mist/10 bg-mist/10 sm:grid-cols-3">
           {STATS.map((s) => (
             <div key={s.label} data-reveal className="bg-ink p-8">
               <p className="font-display text-4xl font-semibold text-pulse md:text-5xl">
@@ -90,36 +67,81 @@ export function SocialProof() {
           ))}
         </div>
 
-        {/* Testimonials */}
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {TESTIMONIALS.map((t) => (
-            <figure
-              key={t.quote}
-              data-reveal
-              className="rounded-2xl border border-mist/10 bg-ink-700/60 p-8"
-            >
-              <blockquote className="font-display text-xl leading-snug text-mist text-pretty">
-                „{t.quote}"
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 text-sm">
-                <span className="flex size-9 items-center justify-center rounded-full bg-pulse/15 text-xs font-semibold text-pulse">
-                  ✦
-                </span>
-                <span>
-                  <span className="font-medium text-mist">{t.name}</span>
-                  <span className="block text-sage">
-                    {t.role} · {t.company}
-                  </span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+        {/* Kundenüberblick */}
+        <div
+          data-reveal
+          className="mt-6 rounded-2xl border border-mist/12 bg-mist p-6 text-ink shadow-2xl shadow-black/20 md:p-8"
+        >
+          <div className="flex flex-col gap-3 border-b border-ink/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h3 className="text-2xl font-semibold leading-tight text-ink">
+                Kundenüberblick
+              </h3>
+              <p className="mt-1 text-sm text-slate">Energy3000 · letzte 30 Tage</p>
+            </div>
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-pulse/10 px-3 py-1 text-sm font-semibold text-pulse-deep">
+              <span className="size-2 rounded-full bg-pulse" aria-hidden="true" />
+              Live
+            </span>
+          </div>
+
+          <div className="grid gap-8 pt-8 lg:grid-cols-[1fr_220px] lg:items-center">
+            <div className="space-y-6">
+              {OVERVIEW_ROWS.map((row) => (
+                <div key={row.label}>
+                  <div className="mb-2 flex items-center justify-between gap-4 text-sm font-medium">
+                    <span className="text-ink-700">{row.label}</span>
+                    <span className="font-semibold text-ink">{row.value}%</span>
+                  </div>
+                  <div className="h-2.5 overflow-hidden rounded-full bg-porcelain-200">
+                    <div
+                      className="h-full rounded-full bg-pulse"
+                      style={{ width: `${row.value}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mx-auto grid size-44 place-items-center rounded-full bg-porcelain-200 p-3">
+              <div
+                className="grid size-full place-items-center rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(var(--color-pulse) 0 89%, var(--color-porcelain-200) 89% 100%)",
+                }}
+              >
+                <div className="grid size-28 place-items-center rounded-full bg-mist text-center">
+                  <div>
+                    <p className="text-4xl font-bold leading-none text-ink">89%</p>
+                    <p className="mt-2 text-sm text-slate">bearbeitet</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <p data-reveal className="mt-6 text-xs text-sage">
-          * Beispielwerte. Logos, Kennzahlen und Stimmen sind Platzhalter und werden nach
-          Kundenfreigabe ersetzt.
-        </p>
+        {/* Nachricht */}
+        <figure
+          data-reveal
+          className="mt-6 max-w-3xl rounded-2xl border border-mist/10 bg-ink-700/60 p-5 md:p-6"
+        >
+          <figcaption className="flex items-center gap-3 text-sm">
+            <span className="flex size-10 items-center justify-center rounded-full bg-pulse/15 text-xs font-semibold text-pulse">
+              AS
+            </span>
+            <span>
+              <span className="font-medium text-mist">Anna Schuh</span>
+              <span className="block text-sage">Energy3000 · Nachricht nach der Messe</span>
+            </span>
+          </figcaption>
+          <blockquote className="mt-5 rounded-2xl rounded-tl-sm bg-pulse px-5 py-4 text-base leading-relaxed text-white shadow-lg shadow-pulse/20 text-pretty md:text-lg">
+            Wir hatten nach der Messe endlich nicht mehr diesen Stapel offener
+            Kontakte. Die Leads waren sauber erfasst, die WhatsApp-Nachrichten
+            gingen direkt raus und unser Team wusste, wo es weitergeht.
+          </blockquote>
+        </figure>
       </div>
     </section>
   );
