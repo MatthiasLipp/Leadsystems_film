@@ -5,7 +5,6 @@ import {
   Gauge,
   MessagesSquare,
   QrCode,
-  ShieldCheck,
   Workflow,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -23,45 +22,39 @@ const FEATURES: Feature[] = [
   {
     icon: QrCode,
     title: "Sofort-Erfassung per QR-Code",
-    body: "Ein QR-Code am Stand genügt. Der Besucher scannt, der Lead landet in Sekunden strukturiert im System — kein Zettel, keine Nachpflege, kein verlorener Kontakt.",
+    body: "Der QR-Code liegt meistens direkt am Handy des Vertrieblers. Besucher scannen ihn, tragen ihre Daten ein und der Kontakt ist sofort im System.",
     span: "lg:col-span-8",
     visual: "qr",
   },
   {
     icon: BellRing,
-    title: "Echtzeit-Benachrichtigung",
-    body: "Ihr Standteam wird sofort informiert, wenn ein A-Lead scannt — und kann das Gespräch direkt vertiefen.",
+    title: "Neue Leads live im Blick",
+    body: "Sobald ein Kontakt angelegt wird, ist er in Echtzeit sichtbar. So sieht Ihr Team sofort, wer gerade am Stand war und was als Nächstes passieren soll.",
     span: "lg:col-span-4",
   },
   {
     icon: MessagesSquare,
     title: "Automatisierte WhatsApp-Sequenzen",
-    body: "Begrüßung, Terminvorschlag, Nurture: vordefinierte Flows starten automatisch und halten den Kontakt warm.",
-    span: "lg:col-span-4",
+    body: "Nach dem Scan kann automatisch eine WhatsApp-Unterhaltung starten: Begrüßung, Infos zu Firma und Produkten, Antworten auf typische Fragen oder ein Terminvorschlag.",
+    span: "lg:col-span-6",
     visual: "chat",
   },
   {
     icon: Gauge,
     title: "Lead-Tracking & Scoring",
-    body: "Jeder Lead wird qualifiziert und bewertet. Ihr Vertrieb sieht auf einen Blick, wo sich das schnelle Nachfassen lohnt.",
-    span: "lg:col-span-4",
-  },
-  {
-    icon: ShieldCheck,
-    title: "DSGVO-konform per Double-Opt-in",
-    body: "Einwilligung sauber dokumentiert, Daten in Deutschland verarbeitet. Rechtssicher vom ersten Scan an.",
-    span: "lg:col-span-4",
+    body: "Jeder Kontakt bekommt einen klaren Status. Ihr Vertrieb sieht, wer schon angeschrieben wurde, wer geantwortet hat und wo der nächste Schritt fehlt.",
+    span: "lg:col-span-6",
   },
   {
     icon: Workflow,
-    title: "CRM-Anbindung",
-    body: "Qualifizierte Leads fließen automatisch in Ihr CRM — HubSpot, Salesforce, Pipedrive und mehr. Ohne Doppelerfassung.",
+    title: "Eigene CRM-App",
+    body: "Ihr Team bekommt eine eigene App und Webseite für die Messekontakte. Dort sind Leads, Notizen, Status und Follow-ups an einem Ort.",
     span: "lg:col-span-6",
   },
   {
     icon: BarChart3,
     title: "ROI-Dashboard",
-    body: "Scans, Conversion, Pipeline-Wert je Messe. Endlich eine belastbare Zahl hinter dem teuren Messeauftritt.",
+    body: "Sie sehen pro Messe, wie viele Kontakte erfasst wurden, wie viele Gespräche entstanden sind und welche Follow-ups noch offen sind.",
     span: "lg:col-span-6",
   },
 ];
@@ -103,11 +96,12 @@ export function Features() {
             Funktionen
           </p>
           <h2 data-reveal className="mt-4 text-balance text-4xl leading-[1.05] md:text-5xl">
-            Alles, was aus einem Scan einen Abschluss macht.
+            Alles, was nach dem Scan passieren muss.
           </h2>
           <p data-reveal className="mt-5 text-lg leading-relaxed text-slate text-pretty">
-            Eine durchgängige Infrastruktur — von der Erfassung am Stand bis zur
-            Auswertung im Dashboard. Kein Tool-Flickwerk, keine manuelle Übergabe.
+            Eine komplette Lösung für Ihre Messe-Leads: erfassen, qualifizieren,
+            per WhatsApp nachfassen und im Dashboard auswerten. So bleibt nach
+            der Messe kein Kontakt irgendwo in Notizen hängen.
           </p>
         </div>
 
