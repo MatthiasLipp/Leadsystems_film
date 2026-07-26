@@ -1,18 +1,18 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReveals } from "@/hooks/useReveals";
 
 const STATS = [
   {
-    value: "0 Zettel",
-    label: "Kontakte werden direkt digital erfasst.",
+    value: "12.895",
+    label: "Leads erfasst",
   },
   {
-    value: "Sofort",
-    label: "Der erste WhatsApp-Kontakt kann direkt nach dem Scan starten.",
+    value: "2.360",
+    label: "Termine vereinbart",
   },
   {
-    value: "1 Übersicht",
-    label: "Leads, Status und nächste Schritte bleiben an einem Ort.",
+    value: "317",
+    label: "neue Aufträge entstanden",
   },
 ];
 
@@ -23,9 +23,53 @@ const OVERVIEW_ROWS = [
   { label: "Offene Rückmeldungen geklärt", value: 54 },
 ];
 
+const REVIEWS = [
+  {
+    quote:
+      "Früher haben wir nach jeder Messe Visitenkarten abgetippt. Heute steht der erste WhatsApp-Kontakt, bevor der Besucher den Hallengang verlassen hat.",
+    name: "Anna Schuh",
+    role: "Marketingleiterin",
+    company: "Energy3000",
+    initials: "AS",
+  },
+  {
+    quote:
+      "Wir sehen viel schneller, welche Gespräche wirklich weitergehen. Für unser Marketing ist das deutlich einfacher zu steuern als eine Excel-Liste nach der Messe.",
+    name: "Marketingleitung",
+    role: "Marketingleiter",
+    company: "4Media",
+    initials: "4M",
+  },
+];
+
 export function SocialProof() {
   const scope = useRef<HTMLElement>(null);
+  const overviewRef = useRef<HTMLDivElement>(null);
+  const [barsActive, setBarsActive] = useState(false);
+
   useReveals(scope);
+
+  useEffect(() => {
+    const overview = overviewRef.current;
+    if (!overview) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setBarsActive(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setBarsActive(true);
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(overview);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -56,19 +100,24 @@ export function SocialProof() {
         </div>
 
         {/* Kennzahlen */}
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-mist/10 bg-mist/10 sm:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {STATS.map((s) => (
-            <div key={s.label} data-reveal className="bg-ink p-8">
-              <p className="font-display text-4xl font-semibold text-pulse md:text-5xl">
+            <div
+              key={s.label}
+              data-reveal
+              className="rounded-2xl border border-mist/10 bg-mist p-8 text-center text-ink"
+            >
+              <p className="font-sans text-5xl font-bold leading-none text-pulse md:text-6xl">
                 {s.value}
               </p>
-              <p className="mt-2 text-sm text-sage">{s.label}</p>
+              <p className="mt-4 text-base font-medium text-ink-700">{s.label}</p>
             </div>
           ))}
         </div>
 
         {/* Kundenüberblick */}
         <div
+          ref={overviewRef}
           data-reveal
           className="mt-6 rounded-2xl border border-mist/12 bg-mist p-6 text-ink shadow-2xl shadow-black/20 md:p-8"
         >
@@ -87,7 +136,7 @@ export function SocialProof() {
 
           <div className="grid gap-8 pt-8 lg:grid-cols-[1fr_220px] lg:items-center">
             <div className="space-y-6">
-              {OVERVIEW_ROWS.map((row) => (
+              {OVERVIEW_ROWS.map((row, index) => (
                 <div key={row.label}>
                   <div className="mb-2 flex items-center justify-between gap-4 text-sm font-medium">
                     <span className="text-ink-700">{row.label}</span>
@@ -95,53 +144,82 @@ export function SocialProof() {
                   </div>
                   <div className="h-2.5 overflow-hidden rounded-full bg-porcelain-200">
                     <div
-                      className="h-full rounded-full bg-pulse"
-                      style={{ width: `${row.value}%` }}
+                      className="h-full rounded-full bg-pulse transition-[width] duration-1000 ease-out"
+                      style={{
+                        width: barsActive ? `${row.value}%` : "0%",
+                        transitionDelay: `${150 + index * 120}ms`,
+                      }}
                     />
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mx-auto grid size-44 place-items-center rounded-full bg-porcelain-200 p-3">
-              <div
-                className="grid size-full place-items-center rounded-full"
-                style={{
-                  background:
-                    "conic-gradient(var(--color-pulse) 0 89%, var(--color-porcelain-200) 89% 100%)",
-                }}
+            <div className="relative mx-auto grid size-44 place-items-center">
+              <svg
+                className="absolute inset-0 size-full -rotate-90"
+                viewBox="0 0 120 120"
+                aria-hidden="true"
               >
-                <div className="grid size-28 place-items-center rounded-full bg-mist text-center">
-                  <div>
-                    <p className="text-4xl font-bold leading-none text-ink">89%</p>
-                    <p className="mt-2 text-sm text-slate">bearbeitet</p>
-                  </div>
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="48"
+                  fill="none"
+                  stroke="var(--color-porcelain-200)"
+                  strokeWidth="13"
+                />
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="48"
+                  fill="none"
+                  stroke="var(--color-pulse)"
+                  strokeLinecap="round"
+                  strokeWidth="13"
+                  strokeDasharray="301.6"
+                  className="transition-[stroke-dashoffset] duration-1000 ease-out"
+                  style={{
+                    strokeDashoffset: barsActive ? 33.2 : 301.6,
+                    transitionDelay: "650ms",
+                  }}
+                />
+              </svg>
+              <div className="grid size-28 place-items-center rounded-full bg-mist text-center">
+                <div>
+                  <p className="text-4xl font-bold leading-none text-ink">89%</p>
+                  <p className="mt-2 text-sm text-slate">bearbeitet</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Nachricht */}
-        <figure
-          data-reveal
-          className="mt-6 max-w-3xl rounded-2xl border border-mist/10 bg-ink-700/60 p-5 md:p-6"
-        >
-          <figcaption className="flex items-center gap-3 text-sm">
-            <span className="flex size-10 items-center justify-center rounded-full bg-pulse/15 text-xs font-semibold text-pulse">
-              AS
-            </span>
-            <span>
-              <span className="font-medium text-mist">Anna Schuh</span>
-              <span className="block text-sage">Energy3000 · Nachricht nach der Messe</span>
-            </span>
-          </figcaption>
-          <blockquote className="mt-5 rounded-2xl rounded-tl-sm bg-pulse px-5 py-4 text-base leading-relaxed text-white shadow-lg shadow-pulse/20 text-pretty md:text-lg">
-            Wir hatten nach der Messe endlich nicht mehr diesen Stapel offener
-            Kontakte. Die Leads waren sauber erfasst, die WhatsApp-Nachrichten
-            gingen direkt raus und unser Team wusste, wo es weitergeht.
-          </blockquote>
-        </figure>
+        {/* Reviews */}
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {REVIEWS.map((review) => (
+            <figure
+              key={`${review.name}-${review.company}`}
+              data-reveal
+              className="rounded-2xl border border-mist/10 bg-ink-700/60 p-6"
+            >
+              <blockquote className="text-xl leading-snug text-mist text-pretty">
+                "{review.quote}"
+              </blockquote>
+              <figcaption className="mt-6 flex items-center gap-3 text-sm">
+                <span className="flex size-10 items-center justify-center rounded-full bg-pulse/15 text-xs font-semibold text-pulse">
+                  {review.initials}
+                </span>
+                <span>
+                  <span className="font-medium text-mist">{review.name}</span>
+                  <span className="block text-sage">
+                    {review.role} · {review.company}
+                  </span>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </section>
   );
