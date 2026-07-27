@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { ArrowUpRight, CalendarCheck, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EmailRequestButton } from "@/components/EmailRequestButton";
 import { useReveals } from "@/hooks/useReveals";
-import { CONTACT_EMAIL, FIRST_CALL_MAILTO } from "@/lib/contact";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 // Buchungslink — echte URL in .env als VITE_CAL_URL hinterlegen.
 // Solange nur der Platzhalter steht, zeigt die Sektion ein Anfrage-Panel
@@ -58,16 +59,27 @@ export function Booking() {
             })}
           </ul>
 
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="mt-9 rounded-full border-ink/20 px-6 text-base"
-          >
-            <a href={isBookingConfigured ? CAL_URL : FIRST_CALL_MAILTO} {...(isBookingConfigured ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-              {isBookingConfigured ? "In neuem Tab öffnen" : "Per E-Mail anfragen"}
-            </a>
-          </Button>
+          {isBookingConfigured ? (
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="mt-9 rounded-full border-ink/20 px-6 text-base"
+            >
+              <a href={CAL_URL} target="_blank" rel="noopener noreferrer">
+                In neuem Tab öffnen
+              </a>
+            </Button>
+          ) : (
+            <EmailRequestButton
+              size="lg"
+              variant="outline"
+              className="mt-9 rounded-full border-ink/20 px-6 text-base"
+              changeClassName="text-slate hover:text-ink"
+            >
+              Per E-Mail anfragen
+            </EmailRequestButton>
+          )}
         </div>
 
         {/* Buchung: echter Embed wenn konfiguriert, sonst Anfrage-Panel */}
@@ -99,16 +111,10 @@ export function Booking() {
                   Messe genügt. Den Rest klären wir im Gespräch.
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-full px-6 text-base"
-                  >
-                    <a href={FIRST_CALL_MAILTO}>
-                      Erstgespräch anfragen
-                      <ArrowUpRight className="size-5" aria-hidden="true" />
-                    </a>
-                  </Button>
+                  <EmailRequestButton size="lg" className="rounded-full px-6 text-base">
+                    Erstgespräch anfragen
+                    <ArrowUpRight className="size-5" aria-hidden="true" />
+                  </EmailRequestButton>
                   <span className="font-mono text-sm text-slate">{CONTACT_EMAIL}</span>
                 </div>
               </div>

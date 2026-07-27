@@ -2,9 +2,9 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ArrowRight, Mail, ScanLine, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EmailRequestButton } from "@/components/EmailRequestButton";
 import { HallBackdrop } from "@/components/HallBackdrop";
 import { LiveCapture } from "@/components/LiveCapture";
-import { FIRST_CALL_MAILTO } from "@/lib/contact";
 
 const TRUST = [
   { Icon: ScanLine, text: "Erfasst in unter 2 Sekunden" },
@@ -51,7 +51,7 @@ export function Hero() {
         className="film-grain pointer-events-none absolute inset-0 z-[5] opacity-[0.2]"
       />
 
-      <div className="mx-auto grid w-full max-w-[90rem] grid-cols-1 items-center gap-10 px-6 pt-28 pb-16 lg:grid-cols-12 lg:gap-10 lg:pt-24">
+      <div className="mx-auto grid w-full max-w-[88rem] grid-cols-1 items-center gap-10 px-6 pt-28 pb-16 lg:grid-cols-12 lg:gap-10 lg:pt-24">
         {/* Text */}
         <div className="lg:col-span-6">
           <h1
@@ -65,16 +65,14 @@ export function Hero() {
           </h1>
 
           <div data-hero="cta" className="mt-8 flex flex-wrap items-center gap-4">
-            <Button
-              asChild
+            <EmailRequestButton
               size="lg"
               className="h-12 rounded-full bg-[#2f6bff] px-7 text-base font-semibold text-white shadow-lg shadow-[#2f6bff]/30 hover:bg-[#2f6bff]/90"
+              changeClassName="text-[#9fb0cf] hover:text-white"
             >
-              <a href={FIRST_CALL_MAILTO}>
-                Per E-Mail anfragen
-                <Mail className="size-5" aria-hidden="true" />
-              </a>
-            </Button>
+              Per E-Mail anfragen
+              <Mail className="size-5" aria-hidden="true" />
+            </EmailRequestButton>
             <Button
               asChild
               size="lg"

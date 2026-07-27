@@ -212,15 +212,42 @@
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
 
+  /* Lesbare Typografie für die Rechtstexte (Impressum, Datenschutz, AGB, AVV) */
+  .legal-prose { color: var(--color-sage); line-height: 1.7; }
+  .legal-prose h2 {
+    margin-top: 2.75rem; margin-bottom: 0.75rem;
+    font-size: 1.3rem; font-weight: 600; color: var(--color-mist);
+    scroll-margin-top: 6rem;
+  }
+  .legal-prose h3 {
+    margin-top: 1.75rem; margin-bottom: 0.5rem;
+    font-size: 1.02rem; font-weight: 600; color: var(--color-mist);
+  }
+  .legal-prose p { margin-bottom: 1rem; }
+  .legal-prose ul { margin-bottom: 1.1rem; margin-left: 1.25rem; list-style: disc; }
+  .legal-prose ol { margin-bottom: 1.1rem; margin-left: 1.35rem; list-style: decimal; }
+  .legal-prose li { margin-bottom: 0.4rem; padding-left: 0.15rem; }
+  .legal-prose a { color: var(--color-pulse); text-decoration: underline; text-underline-offset: 2px; }
+  .legal-prose strong { font-weight: 600; color: var(--color-mist); }
+  .legal-prose table {
+    width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.85rem;
+  }
+  .legal-prose th, .legal-prose td {
+    border: 1px solid color-mix(in oklab, #ffffff 12%, transparent);
+    padding: 0.55rem 0.7rem; text-align: left; vertical-align: top;
+  }
+  .legal-prose th { color: var(--color-mist); font-weight: 600; background: color-mix(in oklab, #ffffff 4%, transparent); }
+  .legal-prose .muted { color: var(--color-slate); font-size: 0.9rem; }
+
   /* Kodak-Filmkorn: monochromes fractalNoise, flackert leicht.
      Verlauf von vollem Korn oben zu komplett sauberem Schwarz unten. */
   .film-grain {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 140px 140px;
     animation: film-grain 0.6s steps(1) infinite;
-    /* Volles Korn nur ganz oben, dann langer weicher Verlauf bis auf null */
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 6%, transparent 85%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 6%, transparent 85%);
+    /* Volles Korn nur ganz oben, dann weicher Verlauf – nur oberer Bereich */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 4%, transparent 42%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 4%, transparent 42%);
   }
 }
 

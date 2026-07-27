@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Mail, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FIRST_CALL_MAILTO } from "@/lib/contact";
+import { EmailRequestButton } from "@/components/EmailRequestButton";
 import {
   Sheet,
   SheetClose,
@@ -22,6 +22,7 @@ const LINKS = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -38,7 +39,7 @@ export function Nav() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-20 max-w-[88rem] items-center justify-between px-6">
         <a href="#top" className="rounded-md" aria-label="Leadsystems — Startseite">
           <Logo />
         </a>
@@ -56,17 +57,20 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <Button asChild size="sm" className="rounded-full font-medium">
-            <a href={FIRST_CALL_MAILTO}>
-              E-Mail anfragen
-              <Mail className="size-3.5" aria-hidden="true" />
-            </a>
-          </Button>
+          <EmailRequestButton
+            size="sm"
+            className="rounded-full font-medium"
+            wrapperClassName="items-center"
+            changeClassName="text-mist/55 hover:text-mist"
+          >
+            E-Mail anfragen
+            <Mail className="size-3.5" aria-hidden="true" />
+          </EmailRequestButton>
         </div>
 
         {/* Mobile */}
         <div className="lg:hidden">
-          <Sheet>
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
@@ -94,14 +98,15 @@ export function Nav() {
                     </a>
                   </SheetClose>
                 ))}
-                <SheetClose asChild>
-                  <Button asChild size="lg" className="mt-4 rounded-full">
-                    <a href={FIRST_CALL_MAILTO}>
-                      Per E-Mail anfragen
-                      <Mail className="size-5" aria-hidden="true" />
-                    </a>
-                  </Button>
-                </SheetClose>
+                <EmailRequestButton
+                  size="lg"
+                  className="mt-4 rounded-full"
+                  onBeforeDialogOpen={() => setMobileOpen(false)}
+                  changeClassName="text-mist/55 hover:text-mist"
+                >
+                  Per E-Mail anfragen
+                  <Mail className="size-5" aria-hidden="true" />
+                </EmailRequestButton>
               </div>
             </SheetContent>
           </Sheet>

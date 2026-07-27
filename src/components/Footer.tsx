@@ -1,33 +1,38 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
 
-const COLUMNS = [
+type FooterLink = { label: string; href: string } | { label: string; to: string };
+
+const COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: "Produkt",
     links: [
-      { label: "So funktioniert's", href: "#story" },
-      { label: "Funktionen", href: "#funktionen" },
-      { label: "Referenzen", href: "#referenzen" },
-      { label: "FAQ", href: "#faq" },
+      { label: "So funktioniert's", to: "/#story" },
+      { label: "Funktionen", to: "/#funktionen" },
+      { label: "Referenzen", to: "/#referenzen" },
+      { label: "FAQ", to: "/#faq" },
     ],
   },
   {
     title: "Unternehmen",
     links: [
-      { label: "Über uns", href: "#team" },
-      { label: "Kontakt", href: "#erstgespraech" },
-      { label: "Karriere", href: "#" },
+      { label: "Über uns", to: "/#team" },
+      { label: "Kontakt", to: "/#erstgespraech" },
     ],
   },
   {
     title: "Rechtliches",
     links: [
-      { label: "Impressum", href: "#" },
-      { label: "Datenschutz", href: "#" },
-      { label: "AGB", href: "#" },
+      { label: "Impressum", to: "/impressum" },
+      { label: "Datenschutz", to: "/datenschutz" },
+      { label: "AGB", to: "/agb" },
+      { label: "Auftragsverarbeitung", to: "/avv" },
     ],
   },
 ];
+
+const linkClass = "text-sm text-mist/75 transition-colors hover:text-mist";
 
 export function Footer() {
   return (
@@ -41,7 +46,7 @@ export function Footer() {
               Dashboard. Aus flüchtigen Standkontakten wird messbare Pipeline.
             </p>
             <Button asChild className="mt-7 rounded-full px-6">
-              <a href="#erstgespraech">Erstgespräch buchen</a>
+              <Link to="/#erstgespraech">Erstgespräch buchen</Link>
             </Button>
           </div>
 
@@ -52,12 +57,15 @@ export function Footer() {
                 <ul className="mt-4 space-y-3">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <a
-                        href={l.href}
-                        className="text-sm text-mist/75 transition-colors hover:text-mist"
-                      >
-                        {l.label}
-                      </a>
+                      {"to" in l ? (
+                        <Link to={l.to} className={linkClass}>
+                          {l.label}
+                        </Link>
+                      ) : (
+                        <a href={l.href} className={linkClass}>
+                          {l.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -67,10 +75,21 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-mist/10 pt-8 text-sm text-sage sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Leadsystems. Alle Rechte vorbehalten.</p>
-          <p className="text-mist/45">
-            Impressum, Adresse &amp; Kontaktdaten — Platzhalter, bitte ergänzen.
-          </p>
+          <p>© {new Date().getFullYear()} Leadsystems · Jamodo e.U. Alle Rechte vorbehalten.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-mist/60">
+            <Link to="/impressum" className="transition-colors hover:text-mist">
+              Impressum
+            </Link>
+            <Link to="/datenschutz" className="transition-colors hover:text-mist">
+              Datenschutz
+            </Link>
+            <Link to="/agb" className="transition-colors hover:text-mist">
+              AGB
+            </Link>
+            <Link to="/avv" className="transition-colors hover:text-mist">
+              Auftragsverarbeitung
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

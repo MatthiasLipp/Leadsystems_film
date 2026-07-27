@@ -7,14 +7,18 @@ const TEAM_IMAGE_PATH = `${import.meta.env.BASE_URL}team/`;
 
 const PEOPLE = [
   {
-    src: `${TEAM_IMAGE_PATH}leadsystems-founder-portrait.webp`,
-    alt: "Leadsystems Teammitglied im schwarzen Leadsystems-Shirt.",
-    role: "Produkt, Automatisierung & Umsetzung",
+    src: `${TEAM_IMAGE_PATH}1.png`,
+    alt: "Matthias Lipp, Mitgründer von Leadsystems.",
+    name: "Matthias Lipp",
+    role: "Technik, Produkt & Automatisierung",
+    bio: "Matthias hat Wirtschaftsinformatik studiert und verbindet fundiertes technisches Verständnis mit echter Entwicklungserfahrung. Er verantwortet Architektur, Programmierung und Automatisierung hinter Leadsystems — von der QR-Erfassung über die Qualifizierung bis zur WhatsApp-Nachfassstrecke.",
   },
   {
-    src: `${TEAM_IMAGE_PATH}leadsystems-team-portrait.webp`,
-    alt: "Leadsystems Teammitglied vor dunklem Studiohintergrund.",
-    role: "Vertrieb, Kundenprozesse & Messe-Setup",
+    src: `${TEAM_IMAGE_PATH}2.png`,
+    alt: "Julian Anspach, Mitgründer von Leadsystems.",
+    name: "Julian Anspach",
+    role: "Vertrieb, Messen & Kundenprozesse",
+    bio: "Julian hat bereits mehrere Unternehmen im Handel aufgebaut und geführt und kennt den Messebetrieb aus erster Hand. Dieses Vertriebs- und Branchenwissen bringt er in jeden Kundenprozess ein — vom Standkonzept über die Ansprache bis zur qualifizierten Übergabe an den Vertrieb.",
   },
 ];
 
@@ -34,17 +38,18 @@ export function Team() {
             Wer wir sind
           </p>
           <h2 data-reveal className="mt-4 text-balance text-4xl leading-[1.05] md:text-5xl">
-            Wir bauen Leadsystems für Teams, die nach der Messe nicht hinterherlaufen wollen.
+            Wir bauen Leadsystems für Firmen, die nach der Messe nicht hinterherlaufen wollen.
           </h2>
           <p data-reveal className="mt-6 text-lg leading-relaxed text-sage text-pretty">
-            Wir verbinden Sales-Verständnis, Automatisierung und saubere technische Umsetzung.
-            Das Ziel ist simpel: Jeder gute Kontakt soll sofort im richtigen Prozess landen,
-            statt in Notizen, Tabellen oder verlorenen Visitenkarten zu verschwinden.
+            Hinter Leadsystems stehen wir zwei Gründer, die sich bewusst ergänzen: technische
+            Tiefe auf der einen, Vertriebs- und Messeerfahrung auf der anderen Seite. Genau diese
+            Kombination steckt in jedem Detail, das wir bauen.
           </p>
           <p data-reveal className="mt-5 text-base leading-relaxed text-mist/80 text-pretty">
-            Deshalb denken wir den Messeauftritt nicht als Formular, sondern als kompletten
-            Flow: QR-Erfassung, Qualifizierung, WhatsApp-Nachfassstrecke und klare Auswertung
-            für Ihr Vertriebsteam.
+            Wir kennen beide Seiten des Messetages — den Stand und das System dahinter. Deshalb
+            denken wir Ihren Auftritt nicht als Formular, sondern als kompletten Flow:
+            QR-Erfassung, Qualifizierung, WhatsApp-Nachfassstrecke und klare Auswertung. Technisch
+            sauber gebaut und vertrieblich durchdacht.
           </p>
           <Button asChild size="lg" className="mt-9 rounded-full px-6 text-base">
             <a href="#erstgespraech">
@@ -68,16 +73,15 @@ export function Team() {
                   src={person.src}
                   alt={person.alt}
                   width={760}
-                  height={index === 0 ? 1066 : 760}
+                  height={950}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="border-t border-mist/10 p-5">
-                <p className="label-mono text-pulse">{String(index + 1).padStart(2, "0")}</p>
-                <p className="mt-2 text-base font-medium leading-snug text-mist">
-                  {person.role}
-                </p>
+                <p className="text-lg font-semibold leading-snug text-mist">{person.name}</p>
+                <p className="mt-1 text-sm font-medium text-pulse">{person.role}</p>
+                <p className="mt-3 text-sm leading-relaxed text-sage text-pretty">{person.bio}</p>
               </div>
             </article>
           ))}
