@@ -42,7 +42,7 @@ export function Team() {
       />
 
       <div className="mx-auto max-w-[88rem] px-6">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <p data-reveal className="label-mono text-pulse">
             Wer wir sind
           </p>
@@ -53,12 +53,6 @@ export function Team() {
             Hinter Leadsystems stehen wir zwei Gründer, die sich bewusst ergänzen: technische
             Tiefe auf der einen, Vertriebs- und Messeerfahrung auf der anderen Seite. Genau diese
             Kombination steckt in jedem Detail, das wir bauen.
-          </p>
-          <p data-reveal className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist/80 text-pretty">
-            Wir kennen beide Seiten des Messetages — den Stand und das System dahinter. Deshalb
-            denken wir Ihren Auftritt nicht als Formular, sondern als kompletten Flow:
-            QR-Erfassung, Qualifizierung, WhatsApp-Nachfassstrecke und klare Auswertung. Technisch
-            sauber gebaut und vertrieblich durchdacht.
           </p>
         </div>
 
