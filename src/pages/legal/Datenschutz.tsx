@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { LegalLayout } from "./LegalLayout";
 
 export function Datenschutz() {
@@ -83,8 +82,8 @@ export function Datenschutz() {
         Erbringen wir für Kunden technische Leistungen rund um Lead-Erfassung, CRM-, Automatisierungs-
         und Kommunikationssysteme, verarbeiten wir personenbezogene Daten im Auftrag des jeweiligen
         Kunden. In diesem Fall ist der Kunde Verantwortlicher und wir handeln als
-        Auftragsverarbeiter. Die Einzelheiten regelt unsere{" "}
-        <Link to="/avv">Vereinbarung zur Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO</Link>.
+        Auftragsverarbeiter. Die Einzelheiten regelt unsere Vereinbarung zur Auftragsverarbeitung
+        (AVV) gemäß Art. 28 DSGVO.
       </p>
 
       <h2>8. Empfänger &amp; Auftragsverarbeiter</h2>
@@ -92,8 +91,8 @@ export function Datenschutz() {
         Zur Erbringung unserer Leistungen setzen wir sorgfältig ausgewählte Dienstleister ein, u. a.
         Hosting-/Infrastruktur-Anbieter, CRM- und Automatisierungsplattformen (z. B. HighLevel, n8n)
         sowie Kommunikationsdienste (z. B. Meta / WhatsApp Business Platform). Mit diesen bestehen
-        Auftragsverarbeitungsverträge. Eine detaillierte Übersicht finden Sie in der{" "}
-        <Link to="/avv">AVV, Anlage 3</Link>.
+        Auftragsverarbeitungsverträge. Eine detaillierte Übersicht stellen wir Kunden im Rahmen der
+        AVV bereit.
       </p>
 
       <h2>9. Datenübermittlung in Drittländer</h2>

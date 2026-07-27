@@ -30,45 +30,46 @@ export function Team() {
     <section
       id="team"
       ref={scope}
-      className="dark overflow-hidden bg-ink-800 py-24 text-mist md:py-32"
+      className="dark relative isolate overflow-hidden bg-ink py-24 text-mist md:py-32"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-5">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_16%,rgba(47,107,255,0.18),transparent_30%),linear-gradient(180deg,rgba(7,11,22,0.9)_0%,rgba(11,17,32,0.98)_58%,rgba(7,11,22,1)_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-72 opacity-35 [background-image:radial-gradient(circle_at_center,rgba(47,107,255,0.85)_1px,transparent_1px)] [background-size:26px_26px] [mask-image:linear-gradient(to_top,#000,transparent)]"
+      />
+
+      <div className="mx-auto max-w-[88rem] px-6">
+        <div className="mx-auto max-w-4xl text-center">
           <p data-reveal className="label-mono text-pulse">
             Wer wir sind
           </p>
           <h2 data-reveal className="mt-4 text-balance text-4xl leading-[1.05] md:text-5xl">
             Wir bauen Leadsystems für Firmen, die nach der Messe nicht hinterherlaufen wollen.
           </h2>
-          <p data-reveal className="mt-6 text-lg leading-relaxed text-sage text-pretty">
+          <p data-reveal className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-sage text-pretty">
             Hinter Leadsystems stehen wir zwei Gründer, die sich bewusst ergänzen: technische
             Tiefe auf der einen, Vertriebs- und Messeerfahrung auf der anderen Seite. Genau diese
             Kombination steckt in jedem Detail, das wir bauen.
           </p>
-          <p data-reveal className="mt-5 text-base leading-relaxed text-mist/80 text-pretty">
+          <p data-reveal className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-mist/80 text-pretty">
             Wir kennen beide Seiten des Messetages — den Stand und das System dahinter. Deshalb
             denken wir Ihren Auftritt nicht als Formular, sondern als kompletten Flow:
             QR-Erfassung, Qualifizierung, WhatsApp-Nachfassstrecke und klare Auswertung. Technisch
             sauber gebaut und vertrieblich durchdacht.
           </p>
-          <Button asChild size="lg" className="mt-9 rounded-full px-6 text-base">
-            <a href="#erstgespraech">
-              Mit uns sprechen
-              <ArrowUpRight className="size-5" aria-hidden="true" />
-            </a>
-          </Button>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-7">
-          {PEOPLE.map((person, index) => (
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-14">
+          {PEOPLE.map((person) => (
             <article
               key={person.src}
               data-reveal
-              className={`group overflow-hidden rounded-lg border border-mist/10 bg-ink shadow-2xl shadow-black/30 ${
-                index === 1 ? "sm:mt-16" : ""
-              }`}
+              className="grid gap-7 sm:grid-cols-[minmax(220px,0.9fr)_1fr] sm:items-center"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-ink-700">
+              <div className="group aspect-[4/5] overflow-hidden rounded-lg border border-mist/15 bg-ink-700 shadow-2xl shadow-black/35">
                 <img
                   src={person.src}
                   alt={person.alt}
@@ -78,13 +79,23 @@ export function Team() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
-              <div className="border-t border-mist/10 p-5">
-                <p className="text-lg font-semibold leading-snug text-mist">{person.name}</p>
-                <p className="mt-1 text-sm font-medium text-pulse">{person.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-sage text-pretty">{person.bio}</p>
+
+              <div className="min-w-0">
+                <p className="text-2xl font-semibold leading-tight text-mist">{person.name}</p>
+                <p className="mt-2 text-sm font-medium text-pulse">{person.role}</p>
+                <p className="mt-6 text-base leading-relaxed text-sage text-pretty">{person.bio}</p>
               </div>
             </article>
           ))}
+        </div>
+
+        <div data-reveal className="mt-14 flex justify-center">
+          <Button asChild size="lg" className="rounded-full px-6 text-base">
+            <a href="#erstgespraech">
+              Mit uns sprechen
+              <ArrowUpRight className="size-5" aria-hidden="true" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>

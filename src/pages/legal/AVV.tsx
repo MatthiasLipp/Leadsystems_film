@@ -1,6 +1,18 @@
+import { useEffect } from "react";
 import { LegalLayout } from "./LegalLayout";
 
 export function AVV() {
+  useEffect(() => {
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const previousContent = meta?.content;
+
+    meta?.setAttribute("content", "noindex, nofollow");
+
+    return () => {
+      if (meta && previousContent) meta.setAttribute("content", previousContent);
+    };
+  }, []);
+
   return (
     <LegalLayout
       title="Auftragsverarbeitung (AVV)"

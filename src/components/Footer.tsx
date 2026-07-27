@@ -27,7 +27,6 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
       { label: "Impressum", to: "/impressum" },
       { label: "Datenschutz", to: "/datenschutz" },
       { label: "AGB", to: "/agb" },
-      { label: "Auftragsverarbeitung", to: "/avv" },
     ],
   },
 ];
@@ -85,9 +84,6 @@ export function Footer() {
             </Link>
             <Link to="/agb" className="transition-colors hover:text-mist">
               AGB
-            </Link>
-            <Link to="/avv" className="transition-colors hover:text-mist">
-              Auftragsverarbeitung
             </Link>
           </div>
         </div>

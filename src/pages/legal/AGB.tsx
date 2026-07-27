@@ -89,7 +89,7 @@ export function AGB() {
       <h2>10. Datenschutz</h2>
       <p>
         Die Verarbeitung personenbezogener Daten im Auftrag des Auftraggebers regelt die{" "}
-        <Link to="/avv">Vereinbarung zur Auftragsverarbeitung (AVV)</Link> gemäß Art. 28 DSGVO.
+        Vereinbarung zur Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO.
         Informationen zur Verarbeitung auf dieser Website enthält die{" "}
         <Link to="/datenschutz">Datenschutzerklärung</Link>.
       </p>
