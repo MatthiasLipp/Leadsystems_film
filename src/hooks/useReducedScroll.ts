@@ -1,30 +1,24 @@
 import { useEffect, useState } from "react";
 
 /**
- * Liefert `true`, wenn die scroll-gesteuerte Bildsequenz NICHT laufen soll:
- *  • Nutzer bevorzugt reduzierte Bewegung, ODER
- *  • kleiner Viewport (Touch/Mobile) — dort degradieren wir auf ein
- *    statisches Repräsentativ-Frame + normalen Scroll.
+ * Liefert `true`, wenn die scroll-gesteuerte Bildsequenz NICHT laufen soll.
+ * Nur noch bei `prefers-reduced-motion: reduce` — Touch/Mobile bekommt jetzt
+ * ebenfalls das Canvas-Scrubbing (kein Viewport-Gate mehr).
  *
  * SSR-/Prerender-sicher: startet konservativ mit `true` und korrigiert im Effekt.
  */
-export function useReducedScroll(mobileBreakpoint = 768): boolean {
+export function useReducedScroll(): boolean {
   const [reduced, setReduced] = useState(true);
 
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const widthQuery = window.matchMedia(`(max-width: ${mobileBreakpoint - 1}px)`);
 
-    const update = () => setReduced(motionQuery.matches || widthQuery.matches);
+    const update = () => setReduced(motionQuery.matches);
     update();
 
     motionQuery.addEventListener("change", update);
-    widthQuery.addEventListener("change", update);
-    return () => {
-      motionQuery.removeEventListener("change", update);
-      widthQuery.removeEventListener("change", update);
-    };
-  }, [mobileBreakpoint]);
+    return () => motionQuery.removeEventListener("change", update);
+  }, []);
 
   return reduced;
 }
