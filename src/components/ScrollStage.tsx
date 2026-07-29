@@ -152,8 +152,13 @@ export function ScrollStage() {
       if (railRef.current) railRef.current.style.transform = `scaleY(${p})`;
     };
 
+    // Entkoppeltes Rendering: ScrollTrigger schreibt nur `target`; hier läuft
+    // im rAF-Takt eine Lerp-Annäherung → weiches Easing zwischen Scroll-Input
+    // und Frame-Wechsel (das Äquivalent zu GSAP `scrub`, hier über EASE steuerbar).
+    // Kleiner = träger/smoother, größer = direkter. 0.10 ≈ ~0.5 s Nachlauf.
+    const EASE = 0.1;
     const tick = () => {
-      current += (target - current) * 0.16;
+      current += (target - current) * EASE;
       if (Math.abs(target - current) < 0.0002) current = target;
       drawFrame(current * (FRAME_COUNT - 1));
       raf = requestAnimationFrame(tick);
