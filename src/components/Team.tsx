@@ -7,18 +7,18 @@ const TEAM_IMAGE_PATH = `${import.meta.env.BASE_URL}team/`;
 
 const PEOPLE = [
   {
+    src: `${TEAM_IMAGE_PATH}2.png`,
+    alt: "Julian Anspach, Mitgründer von Leadsystems.",
+    name: "Julian Anspach",
+    role: "Inhaber · Vertrieb, Messen & Kundenprozesse",
+    bio: "Julian hat bereits mehrere Unternehmen im Handel aufgebaut und geführt und kennt den Messebetrieb aus erster Hand. Dieses Vertriebs- und Branchenwissen bringt er in jeden Kundenprozess ein — vom Standkonzept über die Ansprache bis zur qualifizierten Übergabe an den Vertrieb.",
+  },
+  {
     src: `${TEAM_IMAGE_PATH}1.png`,
     alt: "Matthias Lipp, Mitgründer von Leadsystems.",
     name: "Matthias Lipp",
     role: "Technik, Produkt & Automatisierung",
     bio: "Matthias hat Wirtschaftsinformatik studiert und verbindet fundiertes technisches Verständnis mit echter Entwicklungserfahrung. Er verantwortet Architektur, Programmierung und Automatisierung hinter Leadsystems — von der QR-Erfassung über die Qualifizierung bis zur WhatsApp-Nachfassstrecke.",
-  },
-  {
-    src: `${TEAM_IMAGE_PATH}2.png`,
-    alt: "Julian Anspach, Mitgründer von Leadsystems.",
-    name: "Julian Anspach",
-    role: "Vertrieb, Messen & Kundenprozesse",
-    bio: "Julian hat bereits mehrere Unternehmen im Handel aufgebaut und geführt und kennt den Messebetrieb aus erster Hand. Dieses Vertriebs- und Branchenwissen bringt er in jeden Kundenprozess ein — vom Standkonzept über die Ansprache bis zur qualifizierten Übergabe an den Vertrieb.",
   },
 ];
 
