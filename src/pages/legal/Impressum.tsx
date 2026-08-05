@@ -12,7 +12,7 @@ export function Impressum() {
       <p>
         <strong>Jamodo e.U.</strong>
         <br />
-        Inhaber: Matthias Lipp
+        Inhaber: Julian Anspach
         <br />
         Waldrandgasse 2/14
         <br />
