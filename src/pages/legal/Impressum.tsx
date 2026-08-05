@@ -6,40 +6,34 @@ export function Impressum() {
     <LegalLayout
       title="Impressum"
       intro="Angaben gemäß § 5 ECG, § 14 UGB, § 63 GewO und § 25 MedienG."
-      updated="Juli 2026"
+      updated="August 2026"
     >
-      <p className="muted">
-        Hinweis: Bitte prüfen und ergänzen Sie die mit „[…]“ markierten Platzhalter vor der
-        Veröffentlichung.
-      </p>
-
       <h2>Medieninhaber &amp; Diensteanbieter</h2>
       <p>
         <strong>Jamodo e.U.</strong>
         <br />
         Inhaber: Matthias Lipp
         <br />
-        [Straße und Hausnummer]
+        Waldrandgasse 2/14
         <br />
-        [PLZ] [Ort], Österreich
+        2620 Neunkirchen, Österreich
       </p>
 
       <h2>Kontakt</h2>
       <p>
-        Telefon: [Telefonnummer]
+        Telefon: <a href="tel:+436605084770">+43 660 5084770</a>
         <br />
-        E-Mail: <a href="mailto:kontakt@leadsystems.de">kontakt@leadsystems.de</a>
+        E-Mail: <a href="mailto:kontakt@leadsystems.at">kontakt@leadsystems.at</a>
         <br />
-        Web: leadsystems.de
+        Web:{" "}
+        <a href="https://www.leadsystems.at" target="_blank" rel="noopener noreferrer">
+          www.leadsystems.at
+        </a>
       </p>
 
       <h2>Unternehmensdaten</h2>
       <p>
-        Firmenbuchnummer: [FN …]
-        <br />
-        Firmenbuchgericht: [zuständiges Landesgericht]
-        <br />
-        UID-Nummer: [ATU …]
+        UID-Nummer: ATU73629406
         <br />
         Unternehmensgegenstand: technische Dienstleistungen im Bereich Lead-Erfassung, CRM-,
         Automatisierungs- und Kommunikationssysteme
@@ -47,12 +41,6 @@ export function Impressum() {
 
       <h2>Gewerbe &amp; Aufsicht</h2>
       <p>
-        Gewerbeberechtigung: [Bezeichnung des Gewerbes]
-        <br />
-        Mitgliedschaft: Wirtschaftskammer [Bundesland], Fachgruppe [Fachgruppe]
-        <br />
-        Aufsichtsbehörde / Gewerbebehörde: [Bezirkshauptmannschaft / Magistrat]
-        <br />
         Anwendbare Rechtsvorschriften: Gewerbeordnung (GewO), abrufbar unter{" "}
         <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener noreferrer">
           ris.bka.gv.at
