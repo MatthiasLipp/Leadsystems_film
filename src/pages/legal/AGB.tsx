@@ -105,7 +105,7 @@ export function AGB() {
         Änderungen und Ergänzungen bedürfen der Textform. Sollten einzelne Bestimmungen unwirksam
         sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Es gilt das Recht der
         Republik Österreich unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist, soweit gesetzlich
-        zulässig, [zuständiges Gericht / Sitz des Auftragnehmers].
+        zulässig, das sachlich zuständige Gericht am Sitz des Auftragnehmers (2620 Neunkirchen).
       </p>
     </LegalLayout>
   );

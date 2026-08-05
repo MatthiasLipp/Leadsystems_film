@@ -6,7 +6,7 @@ export type EmailDraft = {
   body: string;
 };
 
-export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL ?? "kontakt@leadsystems.de";
+export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL ?? "kontakt@leadsystems.at";
 export const CONTACT_FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT ?? "";
 export const EMAIL_METHOD_STORAGE_KEY = "leadsystems-email-method";
 

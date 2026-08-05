@@ -17,11 +17,13 @@ export function Datenschutz() {
       <p>
         Verantwortlich für die Datenverarbeitung auf dieser Website ist:
         <br />
-        <strong>Jamodo e.U.</strong>, Inhaber Matthias Lipp
+        <strong>Jamodo e.U.</strong>, Inhaber Julian Anspach
         <br />
-        [Straße und Hausnummer], [PLZ] [Ort], Österreich
+        Waldrandgasse 2/14, 2620 Neunkirchen, Österreich
         <br />
-        E-Mail: <a href="mailto:kontakt@leadsystems.de">kontakt@leadsystems.de</a>
+        Telefon: <a href="tel:+436605084770">+43 660 5084770</a>
+        <br />
+        E-Mail: <a href="mailto:kontakt@leadsystems.at">kontakt@leadsystems.at</a>
       </p>
 
       <h2>2. Rechtsgrundlagen</h2>
@@ -42,8 +44,10 @@ export function Datenschutz() {
       </p>
       <p>
         Diese Daten dienen der technischen Bereitstellung, Stabilität und Sicherheit der Website
-        (Art. 6 Abs. 1 lit. f DSGVO). Hosting-Anbieter: [Hosting-Anbieter inkl. Anschrift]. Mit
-        diesem Anbieter besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO.
+        (Art. 6 Abs. 1 lit. f DSGVO). Hosting-Anbieter ist die GitHub, Inc., 88 Colin P. Kelly
+        Jr. Street, San Francisco, CA 94107, USA (Dienst „GitHub Pages“). Da der Anbieter in den
+        USA sitzt, kann es zu einer Übermittlung von Daten in ein Drittland kommen; diese wird
+        durch die Standardvertragsklauseln der EU-Kommission (Art. 46 DSGVO) abgesichert.
       </p>
 
       <h2>4. Schriftarten (Google Fonts &amp; Fontshare)</h2>
@@ -123,7 +127,7 @@ export function Datenschutz() {
       </ul>
       <p>
         Zur Ausübung Ihrer Rechte genügt eine E-Mail an{" "}
-        <a href="mailto:kontakt@leadsystems.de">kontakt@leadsystems.de</a>.
+        <a href="mailto:kontakt@leadsystems.at">kontakt@leadsystems.at</a>.
       </p>
 
       <h2>12. Beschwerderecht</h2>
